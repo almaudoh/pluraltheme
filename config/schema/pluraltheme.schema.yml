@@ -3,3 +3,37 @@
 pluraltheme.settings:
   type: theme_settings
   label: 'Pluraltheme settings'
+  mapping:
+    width_style:
+      label: 'Width style (Fixed/Fluid)'
+      type: int
+    fixedwidth:
+      label: 'Fixed Width Size'
+      type: int
+    layout_style:
+      label: 'Layout Style (Portal/News/Blog)'
+      type: int
+    leftwidth:
+      label: 'Left Sidebar Width'
+      type: int
+    rightwidth:
+      label: 'Right Sidebar Width'
+      type: int
+    color:
+      label: 'Theme color (Default/Blue/Green)'
+      type: int
+    font_family:
+      label: 'Font Family'
+      type: string
+    font_size:
+      label: 'Font Size'
+      type: double
+    menu_style:
+      label: 'Menu Style (Regular/Enhanced Suckerfish)'
+      type: int
+    show_breadcrumb:
+      label: 'Whether to show Breadcrumbs or not'
+      type: bool
+    use_default_banner:
+      label: 'Whether to use default topbanner or not'
+      type: bool

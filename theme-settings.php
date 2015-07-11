@@ -1,45 +1,46 @@
 <?php
 
-function phptemplate_settings($saved_settings) {
+/**
+ * @file
+ * Custom theme settings for Pluraltheme.
+ */
 
- $defaults = array(
-    'width_style' => 0,
-	  'fixedwidth' => 960,
-	  'layout_style' => 0,
-	  'leftwidth' => 200,
-	  'rightwidth' => 200,
-	  'color' => 0,
-	  'font_family' => 'Arial, Helvetica, sans-serif',
-	  'font_size' => '0.8',
-	  'menu_style' => 0,
-	  'show_breadcrumb' => 0,
-    'use_default_banner' > 0,
-  );
-  
-  $settings = array_merge($defaults, $saved_settings);
-  
-  $form['width_style'] = array(
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function pluraltheme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  $theme = 'pluraltheme';
+
+  $form['pluraltheme'] = [
+    '#type' => 'details',
+    '#title' => t('Pluraltheme custom settings'),
+    '#open' => TRUE,
+  ];
+
+  $form['pluraltheme']['width_style'] = array(
     '#type' => 'select',
     '#title' => t('Fixed/Fluid'),
-    '#default_value' => $settings['width_style'],
+    '#default_value' => theme_get_setting('width_style', $theme),
     '#options' => array (
       0 => t('Fixed Width'),
       1 => t('Fluid Width'),
     ),
   );
   
-  $form['fixedwidth'] = array(
+  $form['pluraltheme']['fixedwidth'] = array(
     '#type' => 'textfield',
     '#title' => t('Fixed Width Size'),
-    '#default_value' => $settings['fixedwidth'],
+    '#default_value' => theme_get_setting('fixedwidth', $theme),
     '#size' => 4,
     '#maxlength' => 4,
   ); 
     
-  $form['layout_style'] = array(
+  $form['pluraltheme']['layout_style'] = array(
     '#type' => 'select',
     '#title' => t('Layout Style'),
-    '#default_value' => $settings['layout_style'],
+    '#default_value' => theme_get_setting('layout_style', $theme),
     '#options' => array (
       0 => t('Portal Style'),
       1 => t('News Style'),
@@ -47,37 +48,37 @@ function phptemplate_settings($saved_settings) {
     ),
   );
   
-  $form['leftwidth'] = array(
+  $form['pluraltheme']['leftwidth'] = array(
     '#type' => 'textfield',
     '#title' => t('Left Sidebar Width'),
-    '#default_value' => $settings['leftwidth'],
+    '#default_value' => theme_get_setting('leftwidth', $theme),
     '#size' => 5,
     '#maxlength' => 5,
   );
 
-  $form['rightwidth'] = array(
+  $form['pluraltheme']['rightwidth'] = array(
     '#type' => 'textfield',
     '#title' => t('Right Sidebar Width'),
-    '#default_value' => $settings['rightwidth'],
+    '#default_value' => theme_get_setting('rightwidth', $theme),
     '#size' => 5,
     '#maxlength' => 5,
   );
   
-  $form['color'] = array(
+  $form['pluraltheme']['color'] = array(
     '#type' => 'select',
     '#title' => t('Color'),
-    '#default_value' => $settings['color'],
-    '#options' => array (
+    '#default_value' => theme_get_setting('color', $theme),
+    '#options' => array(
       0 => t('Default'),
       1 => t('Blue'),
-	  2 => t('Green'),
+	    2 => t('Green'),
     ),
   );
   
-  $form['font_family'] = array(
+  $form['pluraltheme']['font_family'] = array(
     '#type' => 'select',
     '#title' => t('Font Family'),
-    '#default_value' => $settings['font_family'],
+    '#default_value' => theme_get_setting('font_family', $theme),
     '#options' => array (
       'Arial, Helvetica, sans-serif' => t('Arial, Helvetica, Sans-serif'),
       '"Times New Roman", Times, serif' => t('Times New Roman, Times, Serif'),
@@ -88,10 +89,10 @@ function phptemplate_settings($saved_settings) {
     ),
   );
   
-  $form['font_size'] = array(
+  $form['pluraltheme']['font_size'] = array(
     '#type' => 'select',
     '#title' => t('Font Size'),
-    '#default_value' => $settings['font_size'],
+    '#default_value' => theme_get_setting('font_size', $theme),
     '#options' => array (
       '0.7' => t('Smallest'),
 	    '0.8' => t('Small'),
@@ -101,29 +102,27 @@ function phptemplate_settings($saved_settings) {
     ),
   );
   
-  $form['menu_style'] = array(
+  $form['pluraltheme']['menu_style'] = array(
     '#type' => 'select',
     '#title' => t('Menu Style'),
-    '#default_value' => $settings['menu_style'],
+    '#default_value' => theme_get_setting('menu_style', $theme),
     '#options' => array (
       0 => t('Regular Suckerfish'),
-	    1 => t('Enchanced Superfish'),  
+	    1 => t('Enhanced Superfish'),
     ),
   );
   
-  $form['show_breadcrumb'] = array(
+  $form['pluraltheme']['show_breadcrumb'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show Breadcrumbs'),
-    '#default_value' => $settings['show_breadcrumb'],
+    '#default_value' => theme_get_setting('show_breadcrumb', $theme),
   );
 
-  $form['use_default_banner'] = array(
+  $form['pluraltheme']['use_default_banner'] = array(
     '#type' => 'checkbox',
     '#title' => t('Use default topbanner'),
-    '#default_value' => $settings['use_default_banner'],
+    '#default_value' => theme_get_setting('use_default_banner', $theme),
   );
-  
+
   return $form;
 }
-
-?>

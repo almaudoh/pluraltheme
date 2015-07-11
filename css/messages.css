@@ -1,0 +1,54 @@
+/**
+ * Messages
+ */
+.messages {
+  background-color: #fff;
+  border: 1px solid #b8d3e5;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.messages * { margin: 0; padding: 0 }
+
+.messages li {
+  list-style: none;
+  list-style-position: inside;
+}
+
+.messages pre {
+  border: none;
+  background: transparent;
+}
+
+.preview {
+  background-color: #fcfce8;
+  border: 1px solid #e5e58f;
+}
+
+div.status {
+  color: #33a333;
+  border-color: #c7f2c8;
+}
+
+div.status li {
+  list-style-image: url(../images/list-item.png);
+}
+
+div.warning {
+  color: #a3a333;
+  border-color: #e7f2b8;
+}
+
+div.warning li {
+  list-style-image: url(../images/list-item-orange.png);
+}
+
+div.error, tr.error {
+  color: #a30000;
+  background-color: #FFCCCC;
+}
+
+div.error li {
+  list-style-image: url(../images/list-item-red.png);
+}
+

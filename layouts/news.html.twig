@@ -1,0 +1,30 @@
+<!-- News Layout Style -->
+
+<!-- Main Content Area -->
+<div id="main-content">
+  <div id="squeeze">
+    <div id="main-content-inner">
+      {{ page.content_top }}
+      {% if show_breadcrumb == 1 %}
+        {{ page.breadcrumb }}
+      {% endif %}
+      {% if title %}
+        <div class="node-title">
+          {{ title }}
+        </div>
+      {% endif %}
+      {{ tabs }}
+      {{ page.help }}
+      {{ messages }}
+      {{ page.content }}
+      {{ feed_icons }}{# @todo: confirm and remove #}
+      {{ page.content_bottom }}
+    </div>
+  </div>
+</div>
+	  
+<!-- Left Sidebar -->
+{{ page.sidebar_left }}
+
+<!-- Right Sidebar -->
+{{ page.sidebar_right }}

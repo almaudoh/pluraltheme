@@ -1,0 +1,12 @@
+# Custom theme settings
+width_style: 0
+fixedwidth: 960
+layout_style: 0
+leftwidth: 200
+rightwidth: 200
+color: 0
+font_family: 'Arial, Helvetica, sans-serif'
+font_size: 0.8
+menu_style: 0
+show_breadcrumb: false
+use_default_banner: false

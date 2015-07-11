@@ -1,0 +1,30 @@
+/* Form elements */
+input,
+textarea,
+select {
+  padding:5px;
+  border:1px solid #496D78;
+  background:#EBF2F5;
+  font:bold 12px verdana;
+  color:#457589;
+}
+
+input:radio,
+input:checkbox {
+  border: none;
+  background: none;
+}
+
+input.disabled {
+  background-color: #ABB2B5;
+}
+
+.form-item input.error, .form-item textarea.error {
+  border: 1px solid #c52020;
+  color: #363636;
+}
+
+.form-item .description {
+  margin: 2px 0;
+  clear: both;
+}

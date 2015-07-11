@@ -1,73 +1,174 @@
 <?php
 
-/* Body class control */
+/**
+ * @file
+ * Pluraltheme hooks and functions.
+ */
 
-function phptemplate_body_class($left, $right) {
-  if ($left != '' && $right != '') {
-    $class = 'sidebars';
-  }
-  else {
-    if ($left != '') {
-      $class = 'sidebar-left';
-    }
-    if ($right != '') {
-      $class = 'sidebar-right';
-    }
-  }
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Core\Url;
 
-  if (isset($class)) {
-    print ' class="'. $class .'"';
+/**
+ * Implements hook_preprocess_HOOK() for primary links region.
+ */
+function pluraltheme_preprocess_region(&$variables) {
+  if ($variables['region'] === 'primary') {
+    // Add logout link.
+    $variables['logout_link'] = [
+      '#type' => 'link',
+      '#title' => t('logout'),
+      '#url' => Url::fromRoute('user.logout'),
+      '#attributes' => ['class' => 'logoutlink'],
+    ];
   }
 }
 
-// Initialize Theme Settings
-
-if (is_null(theme_get_setting('fixedwidth'))) {  
-  global $theme_key;
-
-  $defaults = array(            
-	  'width_style' => 0,
-	  'fixedwidth' => 960,
-	  'layout_style' => 0,
-	  'leftwidth' => 200,
-	  'rightwidth' => 200,
-	  'color' => 0,
-	  'font_family' => 'Arial, Helvetica, sans-serif',
-	  'font_size' => '0.9',
-	  'menu_style' => 0,
-	  'show_breadcrumb' => 0,	
-  );
-
-  variable_set(
-    str_replace('/', '_', 'theme_'. $theme_key .'_settings'),
-    array_merge($defaults, theme_get_settings($theme_key))
-  );
-
-  theme_get_setting('', TRUE);
-}
-
-// Javascript Includes
-
-drupal_add_js(drupal_get_path('theme', 'pluraltheme') . '/js/jquery.pngFix.js', 'theme'); 
-
-$menu_style = theme_get_setting('menu_style');
-
-  if  ($menu_style == 0) {
-    drupal_add_js(drupal_get_path('theme', 'pluraltheme') . '/js/suckerfish.js', 'theme'); } 
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds body classes if certain left or right sidebars have content.
+ */
+function pluraltheme_preprocess_html(&$variables) {
+  // Set up custom body classes.
+  if (!empty($variables['page']['sidebar_left']) && !empty($variables['page']['sidebar_right'])) {
+    $variables['attributes']['class'][] = 'sidebars';
+  }
   else {
-    drupal_add_js(drupal_get_path('theme', 'pluraltheme') . '/js/superfish.js', 'theme'); 
-} 
+    if (!empty($variables['page']['sidebar_left'])) {
+      $variables['attributes']['class'][] = 'sidebar-left';
+    }
+    if (!empty($variables['page']['sidebar_right'])) {
+      $variables['attributes']['class'][] = 'sidebar-right';
+    }
+  }
 
-// CSS Includes
-  
-$color = theme_get_setting('color');
+  // Transfer theme settings to variables.
+  $variables['layout_style'] = $layout_style = theme_get_setting('layout_style');
+  $variables['width_style'] = theme_get_setting('width_style');
+  $variables['fixedwidth'] = theme_get_setting('fixedwidth');
+  $variables['leftwidth'] = theme_get_setting('leftwidth');
+  $variables['rightwidth'] = theme_get_setting('rightwidth');
+  $variables['color'] = $color = theme_get_setting('color');
+  $variables['menu_style'] = $menu_style = theme_get_setting('menu_style');
 
+  // Theme url for fixed resources.
+  $path = \Drupal::service('theme_handler')->getTheme('pluraltheme')->getPath();
+  $variables['theme_url'] = $theme_url = base_path() . $path;
+
+  // Add custom layout styles.
+  if ($layout_style == 1) {
+    $custom_style = 'news_css';
+  }
+  elseif ($layout_style == 2) {
+    $custom_style = 'blog_css';
+  }
+  else {
+    $custom_style = 'portal_css';
+  }
+  $variables['dynamic_styles'] = pluraltheme_get_layout_style($custom_style);
+
+  // CSS and Javascript includes.
+  $variables['#attached']['library'][] = 'pluraltheme/pngfix';
+  // $menu_style: 0 => suckerfish; 1 => superfish.
+  if ($menu_style == 0) {
+    $variables['#attached']['library'][] = 'pluraltheme/suckerfish';
+  }
+  else {
+    $variables['#attached']['library'][] = 'pluraltheme/superfish';
+  }
+
+  // Color settings and logo color.
+  $logo_color = '';
   if ($color == 0) {
-    drupal_add_css(drupal_get_path('theme', 'pluraltheme') . '/css/default-style.css', 'theme'); } 
-  else if ($color == 1){ 
-    drupal_add_css(drupal_get_path('theme', 'pluraltheme') . '/css/blue-style.css', 'theme'); } 
-  else if ($color == 2){ 
-    drupal_add_css(drupal_get_path('theme', 'pluraltheme') . '/css/green-style.css', 'theme'); 
-  } 
+    $variables['#attached']['library'][] = 'pluraltheme/default-style';
+    $logo_color = 'default';
+  }
+  elseif ($color == 1) {
+    $variables['#attached']['library'][] = 'pluraltheme/blue-style';
+    $logo_color = 'blue';
+  }
+  elseif ($color == 2) {
+    $variables['#attached']['library'][] = 'pluraltheme/green-style';
+    $logo_color = 'green';
+  }
+  $variables['logo'] = $theme_url . '/images/logo-' . $logo_color . '.png';
+}
+
+function pluraltheme_preprocess_page(&$variables) {
+  // Transfer theme settings to variables.
+  $variables['show_breadcrumb'] = theme_get_setting('show_breadcrumb');
+  $variables['use_default_banner'] = theme_get_setting('use_default_banner');
+
+  // CSS widths for top boxes.
+  $top_boxes = 0;
+  if (!empty($variables['user1'])) $top_boxes += 1;
+  if (!empty($variables['user2'])) $top_boxes += 1;
+  if (!empty($variables['user3'])) $top_boxes += 1;
+  switch ($top_boxes) {
+    case 1:
+      $variables['top_boxes_width'] = "width100";
+      break;
+    case 2:
+      $variables['top_boxes_width'] = "width50";
+      break;
+    case 3:
+      $variables['top_boxes_width'] = "width33";
+      break;
+    default:
+      $variables['top_boxes_width'] = "";
+  }
   
-?>
+  // CSS widths for bottom boxes.
+  $bottom_boxes = 0;
+  if (!empty($variables['user4'])) $bottom_boxes += 1;
+  if (!empty($variables['user5'])) $bottom_boxes += 1;
+  if (!empty($variables['user6'])) $bottom_boxes += 1;
+  switch ($bottom_boxes) {
+    case 1:
+      $variables['bottom_boxes_width'] = "width100";
+      break;
+    case 2:
+      $variables['bottom_boxes_width'] = "width50";
+      break;
+    case 3:
+      $variables['bottom_boxes_width'] = "width33";
+      break;
+    default:
+      $variables['bottom_boxes_width'] = "";
+  }
+
+  // Get theme base path for use.
+  $path = \Drupal::service('theme_handler')->getTheme('pluraltheme')->getPath();
+  $variables['top_banner_default'] = base_path() . $path . '/images/topbanner.jpg';
+
+  // Theme the user selected layout.
+  switch (theme_get_setting('layout_style')) {
+    case 1:
+      $template = 'news';
+      break;
+    case 2:
+      $template = 'blog';
+      break;
+    default:
+      $template = 'portal';
+  }
+  $template_file = $path . '/layouts/' . $template . '.html.twig';
+  $variables['layout_content'] = pluraltheme_render_layout_template($template_file, $variables);
+}
+
+function pluraltheme_get_layout_style($name) {
+  $width_style = theme_get_setting('width_style');
+  $fixedwidth = theme_get_setting('fixedwidth');
+  $leftwidth = theme_get_setting('leftwidth');
+  $rightwidth = theme_get_setting('rightwidth');
+  $font_family = theme_get_setting('font_family');
+  $font_size = theme_get_setting('font_size');
+  $width = ($width_style == 1) ? '95%' : $fixedwidth . 'px';
+  $totalwidth = $leftwidth + $rightwidth;
+  $style = include __DIR__ . '/layouts/' . $name . '.php';
+  return $style;
+}
+
+function pluraltheme_render_layout_template($template, $variables) {
+  return SafeMarkup::format(\Drupal::service('twig')->render($template, $variables));
+}

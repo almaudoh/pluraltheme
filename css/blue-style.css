@@ -240,17 +240,17 @@ a, a:visited, a:active {
   font-weight: normal;
 }
 
-.sidebox-content ul.menu li ul li a.active {
+.sidebox-content ul.menu li ul li a.is-active {
   color: #0f1c35;
   font-weight: bold;
 }
 
-.sidebox-content ul.menu li ul li a.active:hover {
+.sidebox-content ul.menu li ul li a.is-active:hover {
   color: #ffffff;
   font-weight: bold;
 }
 
-li a.active {
+li a.is-active {
   font-weight: bold;
   color: #0f1c35;
 }

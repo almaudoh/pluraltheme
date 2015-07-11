@@ -1,0 +1,39 @@
+<!-- Portal Layout Style -->
+
+<!-- Left Sidebar -->
+{{ page.sidebar_left }}
+
+<!-- Main Content Area -->
+<div id="main-content">
+  <div id="squeeze">
+    <div id="main-content-inner">
+    {{ page.content_top }}
+    {% if show_breadcrumb == 1 %}
+      {{ page.breadcrumb }}
+    {% endif %}
+    {% if title %}
+      <div class="node-title">
+        {{ title }}
+      </div>
+    {% endif %}
+    {% if tabs %}
+      <div id="tabs-wrapper" class="clear-block">
+        {{ tabs }}
+      </div>
+    {% endif %}
+    {{ tabs2 }}
+    {{ messages }}
+    {{ page.help }}
+    {% if page.content %}
+      <div class="clear-block">
+        {{ page.content }}
+      </div>
+    {% endif %}
+    {{ feed_icons }}{# @todo: confirm and remove #}
+    {{ page.content_bottom }}
+    </div>
+  </div>
+</div>
+
+<!-- Right Sidebar -->
+{{ page.sidebar_right }}

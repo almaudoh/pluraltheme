@@ -2,4 +2,45 @@ global-styling:
   version: VERSION
   css:
     base:
-      css/style.css: { }
+      css/layout.css: { }
+      css/menu.css: { }
+      css/block.css: { }
+      css/form.css: { }
+      css/messages.css: { }
+      # Remove this after refactoring out common styles.
+      css/default-style.css: { }
+
+blue-style:
+  version: VERSION
+  css:
+    theme:
+      css/blue-style.css: { }
+
+green-style:
+  version: VERSION
+  css:
+    theme:
+      css/green-style.css: { }
+
+default-style:
+  version: VERSION
+  css:
+    theme:
+      css/default-style.css: { }
+
+suckerfish:
+  version: VERSION
+  js:
+    js/suckerfish.js: { }
+
+superfish:
+  version: VERSION
+  js:
+    js/superfish.js: { }
+
+pngfix:
+  version: VERSION
+  js:
+    js/jquery.pngFix.js: { }
+  dependencies:
+    - core/jquery

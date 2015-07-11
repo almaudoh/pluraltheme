@@ -1,25 +1,29 @@
-name: "Pluraltheme"
-description: ""Tableless fluid or fixed width theme adapted from DrupalShark.com (default).""
-version: "1.0"
-core: "8.x"
+name: Pluraltheme
+type: theme
+base theme: classy
+description: 'Tableless fluid or fixed width theme adapted from DrupalShark.com.'
+version: VERSION
+core: 8.x
 libraries:
   - pluraltheme/global-styling
 regions:
-  left: "Left sidebar"
-  right: "Right sidebar"
-  content: "Content"
-  header: "Header"
-  footer: "Footer"
-  primary: "Primary Links"
-  secondary: "Secondary Links"
-  contenttop: "Content Top"
-  contentbottom: "Content Bottom"
-  user1: "User 1"
-  user2: "User 2"
-  user3: "User 3"
-  user4: "User 4"
-  user5: "User 5"
-  user6: "User 6"
-  topbanner: "Top Banner 468 x 60"
-  phone: "phone"
-  logo: "plogo"
+  sidebar_left: 'Left sidebar'
+  sidebar_right: 'Right sidebar'
+  content: 'Main Content'
+  header: Header
+  footer: Footer
+  primary: 'Primary Links'
+  secondary: 'Secondary Links'
+  help: Help
+  content_top: 'Top Content'
+  content_bottom: 'Bottom Content'
+  breadcrumb: Breadcrumb
+  user1: 'User 1'
+  user2: 'User 2'
+  user3: 'User 3'
+  user4: 'User 4'
+  user5: 'User 5'
+  user6: 'User 6'
+  top_banner: 'Top Banner 468 x 60'
+  phone: phone
+  logo: plogo
