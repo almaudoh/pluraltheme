@@ -35,16 +35,16 @@
 <html{{ html_attributes }}>
   <head>
     <title>{{ head_title|safe_join(' | ') }}</title>
-    {{ head }}
-    {{ styles }}
+    <head-placeholder token="{{ placeholder_token|raw }}">
+    <css-placeholder token="{{ placeholder_token|raw }}">
     <style type="text/css">
       {{ dynamic_styles }}
     </style>
-    {{ scripts }}
+    <js-placeholder token="{{ placeholder_token|raw }}">
     <!-- If Superfish Enabled -->
     {% if menu_style == 1 %}
 	  <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function() {
           $("#primary-links .menu").superfish({
             animation : { opacity: "show", width: "show", height: "show" }
           });
@@ -55,7 +55,7 @@
     <!--[if lte IE 6]>
     <link type="text/css" rel="stylesheet" media="all" href="{{ theme_url }}/css/default-style-ie.css"/>
     <script type="text/javascript"> 
-      $(document).ready(function(){ 
+      $(document).ready(function() {
         $(document).pngFix(); 
       }); 
     </script> 
@@ -74,7 +74,7 @@
       {{ page_top }}
       {{ page }}
       {{ page_bottom }}
-      {{ scripts_bottom }}
+      <js-bottom-placeholder token="{{ placeholder_token|raw }}">
     </div>
   </body>
 </html>

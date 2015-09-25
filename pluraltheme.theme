@@ -68,27 +68,27 @@ function pluraltheme_preprocess_html(&$variables) {
   $variables['dynamic_styles'] = pluraltheme_get_layout_style($custom_style);
 
   // CSS and Javascript includes.
-  $variables['#attached']['library'][] = 'pluraltheme/pngfix';
+  $variables['html']['#attached']['library'][] = 'pluraltheme/pngfix';
   // $menu_style: 0 => suckerfish; 1 => superfish.
   if ($menu_style == 0) {
-    $variables['#attached']['library'][] = 'pluraltheme/suckerfish';
+    $variables['html']['#attached']['library'][] = 'pluraltheme/suckerfish';
   }
   else {
-    $variables['#attached']['library'][] = 'pluraltheme/superfish';
+    $variables['html']['#attached']['library'][] = 'pluraltheme/superfish';
   }
 
   // Color settings and logo color.
   $logo_color = '';
   if ($color == 0) {
-    $variables['#attached']['library'][] = 'pluraltheme/default-style';
+    $variables['html']['#attached']['library'][] = 'pluraltheme/default-style';
     $logo_color = 'default';
   }
   elseif ($color == 1) {
-    $variables['#attached']['library'][] = 'pluraltheme/blue-style';
+    $variables['html']['#attached']['library'][] = 'pluraltheme/blue-style';
     $logo_color = 'blue';
   }
   elseif ($color == 2) {
-    $variables['#attached']['library'][] = 'pluraltheme/green-style';
+    $variables['html']['#attached']['library'][] = 'pluraltheme/green-style';
     $logo_color = 'green';
   }
   $variables['logo'] = $theme_url . '/images/logo-' . $logo_color . '.png';
@@ -170,5 +170,5 @@ function pluraltheme_get_layout_style($name) {
 }
 
 function pluraltheme_render_layout_template($template, $variables) {
-  return SafeMarkup::format(\Drupal::service('twig')->render($template, $variables));
+  return SafeMarkup::format(\Drupal::service('twig')->render($template, $variables), []);
 }
