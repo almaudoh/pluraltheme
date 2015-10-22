@@ -1,0 +1,59 @@
+/* Region Layout Styles. */
+
+.layout-container {
+  padding: 0;
+  margin: 0 auto; /* Center on Page */
+  text-align: left; /* Reset text alignment */
+  max-width: 960px;
+}
+
+/* Top banner image */
+.header-image {
+  max-width: 960px;
+}
+
+.page-content {
+  width: 100%;
+  overflow: hidden;
+}
+
+.region-sidebar-first {
+  float: left;
+  width: 20%;
+  margin-right: 10px;
+}
+
+.region-sidebar-second {
+  float: right;
+  width: 19%;
+  margin-left: 10px;
+}
+
+.region-content {
+  float: left;
+  width: 100%;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.layout-content-1-sidebar .region-content {
+  width: 78%; /** @todo Needs to be fine-tuned */
+}
+
+.layout-content-2-sidebar .region-content {
+  width: 58%; /** @todo Needs to be fine-tuned */
+}
+
+.region-featured-top-first,
+.region-featured-top-second,
+.region-featured-top-third {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.region-footer-bottom {
+  padding: 10px;
+  margin: 0;
+  clear: both;
+  text-align: center;
+}

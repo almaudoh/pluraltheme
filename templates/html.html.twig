@@ -64,17 +64,13 @@
 	<style type="text/css">.width33 { width: 33.3%; }</style>
 	<![endif]-->
   </head>
-
   <body{{ attributes }}>
     <a href="#main-content" class="visually-hidden focusable">
       {{ 'Skip to main content'|t }}
     </a>
-
-    <div id="page-wrapper">
-      {{ page_top }}
-      {{ page }}
-      {{ page_bottom }}
-      <js-bottom-placeholder token="{{ placeholder_token|raw }}">
-    </div>
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
 </html>

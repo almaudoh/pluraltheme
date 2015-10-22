@@ -33,41 +33,24 @@
  *   added to make the site slogan visually hidden, but still accessible.
  *
  * Page content (in order of occurrence in the default page.html.twig):
- * - title_prefix: Additional output populated by modules, intended to be
- *   displayed in front of the main title tag that appears in the template.
- * - title: The page title, for use in the actual content.
- * - title_suffix: Additional output populated by modules, intended to be
- *   displayed after the main title tag that appears in the template.
- * - tabs: Tabs linking to any sub-pages beneath the current page (e.g., the
- *   view and edit tabs when displaying a node).
- * - action_links: Actions local to the page, such as "Add menu" on the menu
- *   administration interface.
  * - node: Fully loaded node, if there is an automatically-loaded node
  *   associated with the page and the node ID is the second argument in the
  *   page's path (e.g. node/12345 and node/12345/revisions, but not
  *   comment/reply/12345).
  *
  * Regions:
- * - page.sidebar_left: Items for the Left sidebar region.
- * - page.sidebar_right: Items for the Right sidebar region.
- * - page.content: Items for the Content region.
- * - page.header: Items for the Header region.
- * - page.footer: Items for the Footer region.
- * - page.primary: Items for the Primary Links region.
- * - page.secondary: Items for the Secondary Links region.
- * - page.help: Dynamic help text, mostly for admin pages.
- * - page.content_top: Items for the Content Top region.
- * - page.content_bottom: Items for the Content Bottom region.
- * - page.breadcrumb: Items for the Breadcrumb region.
- * - page.user1: Items for the User 1 region.
- * - page.user2: Items for the User 2 region.
- * - page.user3: Items for the User 3 region.
- * - page.user4: Items for the User 4 region.
- * - page.user5: Items for the User 5 region.
- * - page.user6: Items for the User 6 region.
- * - page.top_banner: Items for the Top Banner 468 x 60 region.
- * - page.phone: Items for the phone region.
- * - page.logo: Items for the plogo region.
+ * - page.header: Items for the header region.
+ * - page.primary_menu: Items for the primary menu region.
+ * - page.secondary_menu: Items for the secondary menu region.
+ * - page.featured_top_first: Items for the first featured top region.
+ * - page.featured_top_second: Items for the second featured top region.
+ * - page.featured_top_third: Items for the third featured top region.
+ * - page.sidebar_left: Items for the left sidebar region.
+ * - page.sidebar_right: Items for the right sidebar region.
+ * - page.content: Items for the main content region.
+ * - page.footer_top_left: Items for the left top footer region.
+ * - page.footer_top_right: Items for the right top footer region.
+ * - page.footer_bottom: Items for the bottom footer region.
  *
  * Custom flags:
  * - layout_style: The style to be used for layout (Portal | Blog | News).
@@ -84,128 +67,59 @@
  * @see html.html.twig
  */
 #}
-<!-- Primary and Secondary Links -->
-{% if page.primary %}
-  <div id="primary-links" class="clear-block">
-    {{ page.primary }}
+<div class="layout-container">
+  {# Primary and secondary menus #}
+  {{ page.primary_menu }}
+  {{ page.secondary_menu }}
+
+  <header role="banner">
+    {# Top banner or default banner #}
+    {% if use_default_banner and top_banner_default %}
+      <img class="header-image" src="{{ top_banner_default }}"/>
+    {% elseif page.header %}
+      {{ page.header }}
+    {% endif %}
+  </header>
+
+  {% if featured_top_column_count > 0 %}
+    {% set featured_top_class = 'featured-top-' ~ featured_top_column_count ~ '-column' %}
+    <div class="featured-top {{ featured_top_class }} clearfix">
+      {{ page.featured_top_first }}
+      {{ page.featured_top_second }}
+      {{ page.featured_top_third }}
+    </div>
+  {% endif %}
+
+  <main role="main" class="clearfix">
+    {% if page.sidebar_first %}
+      <aside class="layout-sidebar-first layout-sidebar" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    {% endif %}
+
+    {% set layout_content_class = 'layout-content-' ~ sidebar_count ~ '-sidebar' %}
+    <div class="layout-content {{ layout_content_class }}">
+      <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+      {{ page.content }}
+    </div>{# /.layout-content #}
+
+    {% if page.sidebar_second %}
+      <aside class="layout-sidebar-second layout-sidebar" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    {% endif %}
+
+  </main>
+
+  {% set footer_top_class = 'footer-top-' ~ footer_top_column_count ~ '-column' %}
+  <div class="footer-top-wrapper {{ footer_top_class }} clearfix">
+    {{ page.footer_top_first }}
+    {{ page.footer_top_second }}
   </div>
-{% endif %}
 
-{% if page.secondary %}
-  <div id="secondary-links" class="clear-block">
-    {{ page.secondary }}
+  {{ page.footer_bottom }}
+
+  <div style="text-align: center; padding: 5px;">
+    <a href="http://www.greenlandtechnology.com/"> A GreenLand Technologies SMS Company </a>
   </div>
-{% endif %}
-
-<div id="header-wrapper" class="clear-block">
-  <!-- If Site Logo Enabled -->
-  {% if logo %}
-    <div id="site-logo">
-      <a href="{{ front_page }}" title="{{ 'Home'|t }}">
-        <img src="{{ logo }}" alt="{{ 'Home'|t }}"/>
-      </a>
-      {% if site_slogan %}
-        <div class='site-slogan'>
-          <h2>{{ site_slogan }}</h2>
-        </div>
-      {% endif %}
-    </div>
-  {% endif %}
-
-  <!-- If Site Name Enabled -->
-  {% if site_name %}
-    <div id="site-name">
-      <a href="{{ front_page }}" title="{{ 'Home'|t }}">{{ site_name }}</a>
-      {% if site_slogan %}
-        <div class='site-slogan'>
-          <h2>{{ site_slogan }}</h2>
-        </div>
-      {% endif %}
-    </div>
-  {% endif %}
-
-  <!-- Top Right Banner -->
-  {% if page.top_banner %}
-    <div id="topbanner">
-      {{ page.top_banner }}
-    </div>
-  {% endif %}
-
-  {% if use_default_banner and top_banner_default %}
-    <div id="topbanner-default">
-      <img src="{{ top_banner_default }}"/>
-    </div>
-  {% endif %}
-</div><!-- End of header-wrapper -->
-
-
-<!-- Top User Regions -->
-{% if page.user1 or page.user2 or page.user3 %}
-  <div id="topboxes" class="clear-block">
-    {% if page.user1 %}
-      <div class="userbox {{ top_boxes_width }}">
-        <div class="userbox-inner">
-          {{ page.user1 }}
-        </div>
-      </div>
-    {% endif %}
-    {% if page.user2 %}
-      <div class="userbox {{ top_boxes_width }}">
-        <div class="userbox-inner">
-          {{ page.user2 }}
-        </div>
-      </div>
-    {% endif %}
-    {% if page.user3 %}
-      <div class="userbox {{ top_boxes_width }}">
-        <div class="userbox-inner">
-          {{ page.user3 }}
-        </div>
-      </div>
-    {% endif %}
-  </div>
-{% endif %}<!-- End of Top User Regions -->
-
-<!-- Main Layout Div & Conditional Statement -->
-<div id="middle-wrapper" class="clear-block">
-  {{ layout_content }}
-  {#{% include "@pluraltheme/portal.html.twig" %}#}
-</div>
-
-<!-- Bottom User Regions -->
-{% if page.user4 or page.user5 or page.user6 %}
-  <div id="bottomboxes" class="clear-block">
-    {% if page.user4 %}
-      <div class="userbox-bottom {{ bottom_boxes_width }}">
-        <div class="userbox-bottom-inner">
-          {{ page.user4 }}
-        </div>
-      </div>
-    {% endif %}
-    {% if page.user5 %}
-      <div class="userbox-bottom {{ bottom_boxes_width }}">
-        <div class="userbox-bottom-inner">
-          {{ page.user5 }}
-        </div>
-      </div>
-    {% endif %}
-    {% if page.user6 %}
-      <div class="userbox-bottom {{ bottom_boxes_width }}">
-        <div class="userbox-bottom-inner">
-          {{ page.user6 }}
-        </div>
-      </div>
-    {% endif %}
-  </div><!-- End of Bottom User Regions -->
-{% endif %}
-
-<!-- The All Knowing All Seeing Footer Block -->
-{% if page.footer %}
-  <footer id="footer" class="clear-block">
-    {{ page.footer }}
-  </footer>
-{% endif %}
-
-<div style="text-align: center; padding: 5px;">
-  <a href="http://www.greenlandtechnology.com/"> A GreenLand Technologies SMS Company </a>
-</div>
+</div>{# /.layout-container #}

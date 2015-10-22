@@ -2,17 +2,18 @@
  * Messages
  */
 .messages {
-  background-color: #fff;
-  border: 1px solid #b8d3e5;
   padding: 5px;
-  margin: 5px 0;
+  margin-left: 7px;
+  clear: both;
 }
 
-.messages * { margin: 0; padding: 0 }
+.messages * {
+  margin: 0;
+  padding: 0;
+}
 
 .messages li {
-  list-style: none;
-  list-style-position: inside;
+  list-style: none inside none;
 }
 
 .messages pre {
@@ -31,7 +32,7 @@ div.status {
 }
 
 div.status li {
-  list-style-image: url(../images/list-item.png);
+  list-style-image: url(../../images/list-item.png);
 }
 
 div.warning {
@@ -40,7 +41,7 @@ div.warning {
 }
 
 div.warning li {
-  list-style-image: url(../images/list-item-orange.png);
+  list-style-image: url(../../images/list-item-orange.png);
 }
 
 div.error, tr.error {
@@ -49,6 +50,9 @@ div.error, tr.error {
 }
 
 div.error li {
-  list-style-image: url(../images/list-item-red.png);
+  list-style-image: url(../../images/list-item-red.png);
 }
 
+.messages + .messages {
+  margin-top: 0.5em;
+}

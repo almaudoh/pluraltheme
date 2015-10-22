@@ -1,0 +1,26 @@
+/* Admin Styles */
+
+table {
+  width: 100%;
+  /*  font-size: 10px;*/
+  font-size: 0.9em;
+}
+
+td, th {
+  padding: 0.5em 1em;
+}
+
+div.admin {
+}
+
+div.admin .left {
+  float: left;
+  margin: 0;
+  width: 49%;
+}
+
+div.admin .right {
+  float: left;
+  margin: 0;
+  width: 49%;
+}

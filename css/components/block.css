@@ -1,0 +1,41 @@
+/**
+ * Styles for blocks in the sidebars.
+ */
+.region-sidebar-first .block h2 {
+  padding: 0 0 10px 0;
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
+
+.region-sidebar-first .block {
+  border: 1px solid #000000;
+  background: #ffffff;
+}
+
+.region-sidebar-second .block h2 {
+  padding: 0 0 10px 0;
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
+
+.region-sidebar-second .block {
+  border: 1px solid #000000;
+  background: #DEDEDE;
+}
+
+.region-sidebar-first .block,
+.region-sidebar-second .block {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+/* Text field sizes in sidebars. */
+.region-sidebar-first input.form-text,
+.region-sidebar-second input.form-text {
+  width: 94%;
+}
+
+/** Main content block */
+#block-pluraltheme-content.block {
+  margin: 10px 0;
+}

@@ -1,0 +1,50 @@
+/* Form elements */
+input,
+textarea,
+select {
+  padding:5px;
+  border:1px solid #496D78;
+  background:#EBF2F5;
+  font:bold 12px verdana;
+  color:#457589;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  border: none;
+  background: none;
+}
+
+input.disabled {
+  background-color: #ABB2B5;
+}
+
+.form-item input.error,
+.form-item textarea.error {
+  border: 1px solid #c52020;
+  color: #363636;
+}
+
+.form-item .description {
+  margin: 2px 0;
+  clear: both;
+}
+
+.form-submit {
+  vertical-align:middle;
+  color:#FFF;
+  font-size:12px;
+  font-weight:bold;
+  border:1px solid #949494;
+  padding:0 3px 2px 3px
+}
+
+.form-submit:hover {
+  background-position: 0 -55px;
+  border-color: #490000;
+}
+
+.form-submit:active {
+  background-position: 0 -110px;
+  border-color: #496D78;
+}

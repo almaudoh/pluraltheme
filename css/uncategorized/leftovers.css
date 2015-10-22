@@ -1,0 +1,53 @@
+.watchdemo
+{
+  padding: 0 3px 0 0;
+}
+
+.contactus
+{
+  border-left: 1px solid #CCC;
+  padding: 0 0 0 5px;
+}
+
+#topboxes {
+  padding: 0;
+  margin: 0;
+  color: #484d51;
+  border: 1px solid #000000;
+  border-top: 0px;
+  background: url(../../images/bottomboxes-background-green.png) repeat-x;
+  overflow: hidden;
+}
+
+#bottomboxes {
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.userbox {
+  float: left;
+  padding-bottom: 32767px;
+  margin-bottom: -32757px;
+  background: white url(../../images/bottomboxes-background-green.png) repeat-x;
+}
+
+.userbox-bottom {
+  float: left;
+  padding-bottom: 32767px;
+  margin-bottom: -32757px;
+}
+
+.userbox-inner {
+  padding: 10px;
+}
+
+.userbox-bottom-inner {
+  padding: 10px;
+  padding-bottom: 32767px;
+  margin-bottom: -32767px;
+  border: 1px solid #000000;
+  border-right: 1px solid #111111;
+  background: #000000 url(../../images/bottomboxes-background.png) repeat-x top;
+}

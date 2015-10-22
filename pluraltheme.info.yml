@@ -1,29 +1,26 @@
 name: Pluraltheme
 type: theme
 base theme: classy
-description: 'Tableless fluid or fixed width theme adapted from DrupalShark.com.'
+description: ' A responsive theme for PluralSMS website based on Classy theme with D8.'
 version: VERSION
 core: 8.x
 libraries:
   - pluraltheme/global-styling
+  - pluraltheme/grid-polyfill
+libraries-extend:
+  sms_ui/compose-form:
+    - pluraltheme/sms-ui-compose
 regions:
-  sidebar_left: 'Left sidebar'
-  sidebar_right: 'Right sidebar'
-  content: 'Main Content'
-  header: Header
-  footer: Footer
-  primary: 'Primary Links'
-  secondary: 'Secondary Links'
-  help: Help
-  content_top: 'Top Content'
-  content_bottom: 'Bottom Content'
-  breadcrumb: Breadcrumb
-  user1: 'User 1'
-  user2: 'User 2'
-  user3: 'User 3'
-  user4: 'User 4'
-  user5: 'User 5'
-  user6: 'User 6'
-  top_banner: 'Top Banner 468 x 60'
-  phone: phone
-  logo: plogo
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  help: 'Help'
+  featured_top_first: 'Featured top first'
+  featured_top_second: 'Featured top second'
+  featured_top_third: 'Featured top third'
+  content: 'Main content'
+  sidebar_first: 'First sidebar'
+  sidebar_second: 'Second sidebar'
+  footer_top_first: 'Footer top first'
+  footer_top_second: 'Footer top second'
+  footer_bottom: 'Footer bottom'

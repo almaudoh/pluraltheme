@@ -1,0 +1,19 @@
+body {
+  font-size: 10pt;
+}
+
+#site-name a {
+  font-size: 54px;
+  font-weight:900;
+  line-height: 54px;
+  color: white;
+}
+
+.site-slogan h2 {
+  margin: 0;
+  padding: 0 0 17px 0;
+  font-size: 12px;
+  line-height: 12px;
+  color: #e4e4e4;
+  text-align: right;
+}

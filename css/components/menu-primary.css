@@ -1,0 +1,95 @@
+/**
+ * Primary Links Menu (Suckerfish/Enhanced)
+ */
+
+@media all and (min-width: 640px) {
+  .region-primary-menu .user-name {
+    float: left;
+    font-size: 15px;
+    line-height: 60px;
+    height: 75px;
+    background: transparent url(../../images/user_name_bg.gif) repeat-x left bottom;
+  }
+
+  .region-primary-menu .user-name span {
+    margin: 0 10px;
+  }
+
+  .region-primary-menu .user-name a {
+    text-decoration: none;
+  }
+
+  .region-primary-menu .user-append {
+    width: 40px;
+    float: left;
+    height: 75px;
+    background: transparent url(../../images/user_name_trans.gif) no-repeat left bottom;
+  }
+
+  .region-primary-menu .block-menu {
+    height: 75px;
+    display: block;
+    background: transparent url(../../images/user_name_bg_small.gif) bottom left repeat-x;
+  }
+
+  .region-primary-menu h2 {
+    display: none;
+  }
+
+  /** Primary links menu styles */
+  .region-primary-menu ul.menu {
+    bottom: 0;
+    right: 6px;
+    padding: 0;
+    margin: 0 20px 0 0;
+    list-style: none;
+    z-index: 10;
+    text-align: right;
+    vertical-align: bottom;
+    line-height: 75px;
+  }
+
+  .region-primary-menu ul.menu li {
+    padding: 7px 14px 7px 0;
+    margin: 0 3px;
+    list-style: none;
+    display: inline;
+    position: static;
+  }
+
+  .region-primary-menu ul.menu li a,
+  .region-primary-menu ul.menu li span.tabs_text {
+    padding: 6px 0 6px 14px;
+    margin: 0;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #1d7bbf;
+    outline: none;
+  }
+
+  .region-primary-menu ul.menu li:hover,
+  .region-primary-menu ul.menu li.sfhover {
+    color: #FFFFFF;
+    background: url(../../images/gray_button_end.gif) no-repeat right bottom;
+  }
+
+  .region-primary-menu ul.menu li.sfhover a,
+  .region-primary-menu ul.menu li.sfhover a span,
+  .region-primary-menu ul.menu li:hover a span,
+  .region-primary-menu ul.menu li:hover a {
+    color: #FFFFFF;
+    background: url(../../images/gray_button_long.gif) no-repeat left bottom;
+  }
+
+  .region-primary-menu ul.menu li.menu-item--active-trail {
+    background: url(../../images/blue_button_end.gif) no-repeat right bottom;
+  }
+
+  .region-primary-menu ul.menu li.menu-item--active-trail a span,
+  .region-primary-menu ul.menu li.menu-item--active-trail a {
+    color: #FFFFFF;
+    background: url(../../images/blue_button_long.gif) no-repeat left bottom;
+  }
+}

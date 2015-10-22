@@ -2,45 +2,68 @@ global-styling:
   version: VERSION
   css:
     base:
-      css/layout.css: { }
-      css/menu.css: { }
-      css/block.css: { }
-      css/form.css: { }
-      css/messages.css: { }
-      # Remove this after refactoring out common styles.
-      css/default-style.css: { }
+      css/layouts/layout.css: { }
+      css/layouts/layout-ie.css: { }
+      css/components/base.css: { }
+      css/components/block.css: { }
+      css/components/breadcrumb.css: { }
+      css/components/comments.css: { }
+      css/components/feeds.css: { }
+      css/components/fonts.css: { }
+      css/components/form.css: { }
+      css/components/menu-primary.css: { }
+      css/components/menu-side.css: { }
+      css/components/menu-tabs.css: { }
+      css/components/messages.css: { }
+      css/components/page-title.css: { }
+      css/components/tables.css: { }
+      css/components/typography.css: { }
 
-blue-style:
+book:
+  version: VERSION
+  css:
+    component:
+      css/components/book.css: { }
+
+forum:
+  version: VERSION
+  css:
+    component:
+      css/components/forum.css: { }
+
+front-page:
+  version: VERSION
+  css:
+    component:
+      css/components/frontpage.css: { }
+      css/components/panels.css: { }
+
+poll:
+  version: VERSION
+  css:
+    component:
+      css/components/polls.css: { }
+
+ash-color:
   version: VERSION
   css:
     theme:
-      css/blue-style.css: { }
+      css/colors/ash-color.css: { }
 
-green-style:
+blue-color:
   version: VERSION
   css:
     theme:
-      css/green-style.css: { }
+      css/colors/blue-color.css: { }
 
-default-style:
+green-color:
   version: VERSION
   css:
     theme:
-      css/default-style.css: { }
+      css/colors/green-color.css: { }
 
-suckerfish:
+sms-ui-compose:
   version: VERSION
-  js:
-    js/suckerfish.js: { }
-
-superfish:
-  version: VERSION
-  js:
-    js/superfish.js: { }
-
-pngfix:
-  version: VERSION
-  js:
-    js/jquery.pngFix.js: { }
-  dependencies:
-    - core/jquery
+  css:
+    component:
+      css/sms_ui/compose-form.css: { }

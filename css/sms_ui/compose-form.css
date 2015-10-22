@@ -1,0 +1,11 @@
+@media all and (max-width: 750px) {
+  .compose-pane {
+    width: 96%;
+  }
+  .summary-pane {
+    width: 100%;
+  }
+  .compose-pane input[type="text"] {
+    width: 98%;
+  }
+}
