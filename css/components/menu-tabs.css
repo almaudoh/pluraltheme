@@ -1,6 +1,8 @@
 /**
  * Local tasks.
  */
+ 
+ /*
 nav.tabs {
   margin: 5px -27px;
   padding: 0 26px;
@@ -24,21 +26,21 @@ ul.secondary li {
 
 ul.primary {
   padding: 0.5em 0 10px;
-  float: left; /* LTR */
+  float: left; /* LTR *//*
 }
 
 ul.secondary {
   clear: both;
   text-align: left; /* LTR */
-  border-bottom: 1px solid #e9eff3;
+ /* border-bottom: 1px solid #e9eff3;
   margin: -0.2em -26px 1em;
   padding: 0 26px 0.6em;
 }
 
 h2.with-tabs {
   float: left; /* LTR */
-  margin: 0 2em 0 0; /* LTR */
-  padding: 0;
+ /* margin: 0 2em 0 0; /* LTR */
+/*  padding: 0;
 }
 
 ul.primary li a,
@@ -53,7 +55,7 @@ ul.secondary li.is-active a {
   background: transparent;
   padding: 4px 1em;
   margin: 0 0 0 1px; /* LTR */
-  height: auto;
+ /* height: auto;
   text-decoration: none;
   position: relative;
   top: -1px;
@@ -77,3 +79,4 @@ ul.secondary li.is-active a {
   font-weight: bold;
 }
 
+*/

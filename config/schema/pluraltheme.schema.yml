@@ -1,6 +1,0 @@
-# Schema for the configuration files of the Bartik theme.
-
-pluraltheme.settings:
-  type: theme_settings
-  label: 'Pluraltheme settings'
- 

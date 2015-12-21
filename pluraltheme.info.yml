@@ -1,23 +1,24 @@
-name: Pluraltheme
+name: 'Plural Theme'
 type: theme
 base theme: classy
-description: ' A responsive theme for PluralSMS website based on Classy theme with D8.'
+description: 'A responsive theme for PluralSMS website based on Zurb Foundation Framework with D8.'
 version: VERSION
 core: 8.x
 libraries:
   - pluraltheme/global-styling
-  - pluraltheme/grid-polyfill
 libraries-extend:
   sms_ui/compose-form:
     - pluraltheme/sms-ui-compose
 regions:
   header: 'Header'
-  primary_menu: 'Primary menu'
-  secondary_menu: 'Secondary menu'
+  navigation: Navigation
   help: 'Help'
+  banner: Banner
+  intro_text: 'Introduction Text'
   featured_top_first: 'Featured top first'
   featured_top_second: 'Featured top second'
   featured_top_third: 'Featured top third'
+  content_banner: 'Node Banner'
   content: 'Main content'
   sidebar_first: 'First sidebar'
   sidebar_second: 'Second sidebar'

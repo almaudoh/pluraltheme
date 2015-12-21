@@ -19,3 +19,6 @@
   color: #191a1c;
 }
 
+section#block-pluraltheme-branding img {
+    float: left;
+}

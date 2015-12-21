@@ -1,14 +1,4 @@
 /* Form elements */
-input,
-textarea,
-select {
-  padding:5px;
-  border:1px solid #496D78;
-  background:#EBF2F5;
-  font:bold 12px verdana;
-  color:#457589;
-}
-
 input[type="radio"],
 input[type="checkbox"] {
   border: none;

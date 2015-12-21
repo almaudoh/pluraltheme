@@ -2,13 +2,15 @@ global-styling:
   version: VERSION
   css:
     base:
-      css/layouts/layout.css: { }
-      css/layouts/layout-ie.css: { }
+      css/foundation/foundation.min.css: {}
+    theme:
+      css/normalize.css: {}
+      css/layout.css: { }
       css/components/base.css: { }
       css/components/block.css: { }
       css/components/breadcrumb.css: { }
       css/components/comments.css: { }
-      css/components/feeds.css: { }
+      css/components/featured.css: { }
       css/components/fonts.css: { }
       css/components/form.css: { }
       css/components/menu-primary.css: { }
@@ -18,49 +20,6 @@ global-styling:
       css/components/page-title.css: { }
       css/components/tables.css: { }
       css/components/typography.css: { }
-
-book:
-  version: VERSION
-  css:
-    component:
-      css/components/book.css: { }
-
-forum:
-  version: VERSION
-  css:
-    component:
-      css/components/forum.css: { }
-
-front-page:
-  version: VERSION
-  css:
-    component:
-      css/components/frontpage.css: { }
-      css/components/panels.css: { }
-
-poll:
-  version: VERSION
-  css:
-    component:
-      css/components/polls.css: { }
-
-ash-color:
-  version: VERSION
-  css:
-    theme:
-      css/colors/ash-color.css: { }
-
-blue-color:
-  version: VERSION
-  css:
-    theme:
-      css/colors/blue-color.css: { }
-
-green-color:
-  version: VERSION
-  css:
-    theme:
-      css/colors/green-color.css: { }
 
 sms-ui-compose:
   version: VERSION
