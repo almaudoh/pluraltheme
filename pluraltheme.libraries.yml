@@ -4,8 +4,8 @@ global-styling:
     base:
       css/foundation/foundation.min.css: {}
     theme:
-      css/normalize.css: {}
-      css/layout.css: { }
+      css/foundation/normalize.css: {}
+      css/layouts/layout.css: { }
       css/components/base.css: { }
       css/components/block.css: { }
       css/components/breadcrumb.css: { }

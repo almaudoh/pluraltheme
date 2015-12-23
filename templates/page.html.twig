@@ -11,30 +11,27 @@
 
       
 	  <div class="large-4 user-details columns hide-for-small">
-		<p>
+      <p>
 		  {% if logged_in %}
-			<a href="{{ path('user.page') }}" class="user-botton">{{ 'My Account'|t }}</a>
-			<a href="{{ path('user.logout') }} " class="user-botton-two">{{ 'Logout'|t }}</a>
+			<a href="{{ path('user.page') }}" class="user-button">{{ 'My Account'|t }}</a>
+			<a href="{{ path('user.logout') }} " class="user-button">{{ 'Logout'|t }}</a>
 		  {% else %}
-			<a href="{{ path('user.register') }}" class="user-botton">{{ 'Sign Up Free'|t }}</a>
-			<a href="{{ path('user.login') }}" class="user-botton-two">{{ 'Login'|t }}</a>
+			<a href="{{ path('user.register') }}" class="user-button">{{ 'Sign Up Free'|t }}</a>
+			<a href="{{ path('user.login') }}" class="user-button">{{ 'Login'|t }}</a>
 		  {% endif %}
-		</p>
+      </p>
 	  </div>
 	
 	  <div class="show-for-small">
-		<div class="six mobile-two columns">
-		  <p>
-			<a href="{{ path('user.login') }}" class="radius button">{{ 'Login'|t }}</a>
-		  </p>
-		</div>
-		<div class="six mobile-two columns">
-		  <p>
-			<a href="{{ path('user.register') }}" class="radius success button">{{ 'Sign Up'|t }}</a>
-		  </p>
-		</div>
-			
-          </header>
+      {% if logged_in %}
+        <a href="{{ path('user.page') }}" class="radius button success user-button">{{ 'My Account'|t }}</a>
+        <a href="{{ path('user.logout') }}" class="radius button user-button">{{ 'Logout'|t }}</a>
+      {% else %}
+        <a href="{{ path('user.register') }}" class="radius button user-button">{{ 'Sign Up Free'|t }}</a>
+        <a href="{{ path('user.login') }}" class="radius button success user-button">{{ 'Login'|t }}</a>
+      {% endif %}
+    </div>
+  </header>
 		  
 	<div class="main-menu">
 	 {% if page.navigation %}

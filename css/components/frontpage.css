@@ -2,7 +2,7 @@
   color: #41709D;
 }
 
-.home_top_row p .strong{
+.home-top-row p .strong{
   color: #000;
 }
 
@@ -39,7 +39,7 @@
   padding-right: 3px;
 }
 
-.home_top_row {
+.home-top-row {
   background: url(../../images/home_divider.png) no-repeat scroll 430px 0 transparent;
   clear: both;
   color: #999999;
@@ -56,7 +56,7 @@
   width: 975px;
 }
 
-.home_banner_hldr {
+.home-banner-hldr {
   background: url('../../images/logo-icon-huge.png') no-repeat scroll right top #00AEEF;
   border: 2px solid #D6DFE5;
   border-radius: 10px 10px 10px 10px;
@@ -66,7 +66,7 @@
   width: 975px;
 }
 
-.home_banner {
+.home-banner {
   height: 230px;
   position: absolute;
   right: 0;
@@ -82,14 +82,14 @@
   position: absolute;
   top: 25px;
 }
-.home_pitch {
+.home-pitch {
   left: 25px;
   position: absolute;
   text-align: left;
   top: 5px;
   width: 350px;
 }
-.home_banner_hldr .video {
+.home-banner-hldr .video {
   background: none repeat scroll 0 0 #000000;
   border-radius: 10px 10px 10px 10px;
   height: 230px;
@@ -99,7 +99,7 @@
   top: 12px;
   width: 353px;
 }
-.home_banner_hldr .video .overlay {
+.home-banner-hldr .video .overlay {
   background: url("../../images/video-overlay-bg.html") no-repeat scroll center center #000000;
   border-radius: 10px;
   cursor: pointer;
@@ -110,26 +110,26 @@
   width: 355px;
   z-index: 1002;
 }
-.home_pitch h2 {
+.home-pitch h2 {
   color: #FFFFFF;
   font-size: 32px;
   font-weight: bold;
   margin-top: 15px;
   text-shadow: 0 1px 1px #E0EBEF;
 }
-.home_pitch p.scoop {
+.home-pitch p.scoop {
   color: #0F427F;
   font-size: 17px;
   line-height: 1.4em;
   text-align: left;
   text-shadow: 0 1px 1px #E0EBEF;
 }
-.home_pitch p.join {
+.home-pitch p.join {
   margin-bottom: 0;
   padding-top: 10px;
   text-align: left;
 }
-.home_pitch p.join a.join-btn {
+.home-pitch p.join a.join-btn {
   background: none repeat scroll 0 0 #11A0FF;
   border-radius: 10px 10px 10px 10px;
   color: #FFFFFF;
@@ -139,10 +139,10 @@
   padding: 8px 35px;
   text-decoration: none;
 }
-.home_pitch p.join a.join-btn:hover {
+.home-pitch p.join a.join-btn:hover {
   background: none repeat scroll 0 0 #0F427F;
 }
-.home_top_row {
+.home-top-row {
   background: url(../../images/home_divider.png) no-repeat scroll 430px 0 transparent;
   clear: both;
   color: #999999;

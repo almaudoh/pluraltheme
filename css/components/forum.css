@@ -1,5 +1,4 @@
 /* Forum Styles */
-
 #forum {
   padding: 10px 0;
 }
@@ -14,7 +13,6 @@
 }
 
 /* Main Forum table */
-
 #forum table {
   width: 100%;
   font-size: 1.0em;
@@ -35,7 +33,6 @@
 }
 
 /* Container Styles */
-
 #forum .container {
   padding: 10px;
   background-color: #000000;
