@@ -369,22 +369,27 @@ ul.sf-menu li.sf-multicolumn-wrapper span.nolink.menuparent {
 	background: #1A659B;
 }
 
-.user-botton {
-	border-right:1px solid #dcdcdc;
-	padding-right: 10px;
+/* User button above navigation page */
+.user-button {
+	padding: 0 10px 0 6px;
+  border-right: 1px solid #dcdcdc;
 }
-
-.user-botton-two {
-	padding-left: 10px;
+.user-button:last-child {
+  border-right: none;
 }
-
-
-.user-botton:hover a{
+.user-button:hover a{
 	background: yellow;
+}
+
+/** User button for mobile page */
+.button.user-button {
+  width: 49%; /** fallback for non-calc compliant browsers */
+  width: calc(50% - 2px);
+  padding: 0.5rem 1rem 0.5625rem;
+  margin: 0 0 0.1rem;
 }
 
 a#superfish-main-toggle {
   background: #ffffff;
 	color: #1A659B;
 }
-
