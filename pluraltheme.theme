@@ -5,6 +5,23 @@
  */
 
 /**
+ * Implements hook_form_alter().
+ *
+ * Alters the login form to use placeholder attributes and hides the titles.
+ */
+function pluraltheme_form_user_login_form_alter(&$form, $form_state) {
+  // Hide the username textfield label and use a placeholder instead.
+  $form['name']['#title_display'] = 'invisible';
+  $form['name']['#placeholder'] = $form['name']['#description'];
+  unset($form['name']['#description']);
+
+  // Hide the password textfield label and use a placeholder instead.
+  $form['pass']['#title_display'] = 'invisible';
+  $form['pass']['#placeholder'] = t('Enter your password');
+  unset($form['pass']['#description']);
+}
+
+/**
  * Implements hook_preprocess_breadcrumb().
  *
  * Adds the "title" variable so that the current page can be added as a breadcrumb.
@@ -282,6 +299,19 @@ function pluraltheme_preprocess_page(&$variables) {
   $variables['linked_site_name'] = '';
   if (!empty($site_name)) {
     $variables['linked_site_name'] = \Drupal::l($site_name, $url);
+  }
+
+  // Remove blocks that are not main content from the 'user/login' page.
+  if (\Drupal::routeMatch()->getRouteName() === 'user.login') {
+    foreach ($variables['page']['content'] as $key => $value) {
+      // @todo: Use of 'pluraltheme_content' here is fragile. Need more robust
+      // method to distinguish.
+      if ($key[0] != '#' && strpos($key, 'pluraltheme_content') === FALSE) {
+        unset($variables['page']['content'][$key]);
+      }
+    }
+    // Also remove sidebar regions.
+    $variables['page']['sidebar_first'] = $variables['page']['sidebar_second'] = '';
   }
 
   // Convenience variables

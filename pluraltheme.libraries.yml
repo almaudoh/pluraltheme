@@ -26,3 +26,9 @@ sms-ui-compose:
   css:
     component:
       css/sms_ui/compose-form.css: { }
+
+user-login:
+  version: VERSION
+  css:
+    component:
+      css/layouts/user-login.css: { }

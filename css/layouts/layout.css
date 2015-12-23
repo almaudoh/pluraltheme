@@ -19,30 +19,10 @@ body {
   width: 100%;
 }
 
-.page-content {
-  /*width: 100%;*/
-  /*overflow: hidden;*/
-}
-
 .region-content {
   padding: 10px;
   margin: 0;
 }
-
-/*
-.region-featured-top-first,
-.region-featured-top-second,
-.region-featured-top-third {
-  padding: 10px;
-  border: 1px solid black;
-}
-
-.region-footer-bottom {
-  padding: 10px;
-  margin: 0;
-  clear: both;
-  text-align: center;
-}*/
 
 @import url(http://fonts.googleapis.com/css?family=Londrina+Sketch);
   
@@ -52,21 +32,20 @@ body {
 	margin: 50px auto 0;
   font-family: "Londrina Sketch", sans-serif;
 	font-weight: 100;
-	font-size: 2em;
+	font-size: 2rem;
 	
 }
 
-  
 .intro_text {
 	/*background: url(../images/friends.jpg);*/
-	min-height: 300px; 
+	min-height: 300px;
 	background: #E9F4FB none repeat scroll 0% 0%;
 }
 
 #footer {
-    /* background: url(images/fbg.png) repeat 0 0; */
-    border-top: 6px #ff8034 solid;
-    padding: 25px 0 10px 0;
-    overflow: hidden;
-    clear: both;
+  /* background: url(images/fbg.png) repeat 0 0; */
+  border-top: 6px #ff8034 solid;
+  padding: 25px 0 10px 0;
+  overflow: hidden;
+  clear: both;
 }
