@@ -21,11 +21,11 @@ global-styling:
       css/components/tables.css: { }
       css/components/typography.css: { }
 
-sms-ui-compose:
+summary-display:
   version: VERSION
   css:
     component:
-      css/sms_ui/compose-form.css: { }
+      css/sms_ui/summary-display.css: { }
 
 user-login:
   version: VERSION

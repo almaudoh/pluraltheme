@@ -21,10 +21,10 @@ input.disabled {
 }
 
 .form-submit {
-  vertical-align:middle;
-  color:#FFF;
-  font-weight:bold;
-  border:1px solid #007095;
+  vertical-align: middle;
+  color: #FFF;
+  font-weight: bold;
+  border: 1px solid #007095;
   padding: .55rem 2rem;
   text-align: center;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
@@ -44,4 +44,11 @@ input.disabled {
 .form-submit.button {
   margin-left: 0;
   margin-right: 0;
+}
+
+/** Form labels */
+.label, label {
+  background-color: inherit;
+  color: inherit;
+  font-weight: inherit;
 }

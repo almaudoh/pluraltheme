@@ -1,12 +1,6 @@
-@media all and (max-width: 750px) {
-  .summary-pane,
-  .compose-pane,
-  .compose-pane input[type="text"] {
-    width: 100%;
-  }
-}
-
-/* SUMMARY DISPLAY */
+/**
+ * Styles for summary display block.
+ */
 .summary-block {
   border: none;
   background: #fff;
@@ -52,4 +46,3 @@
   font-size: 1px;
   line-height: 1px;
 }
-/* END OF SUMMARY DISPLAY */

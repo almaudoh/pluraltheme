@@ -7,8 +7,8 @@ core: 8.x
 libraries:
   - pluraltheme/global-styling
 libraries-extend:
-  sms_ui/compose-form:
-    - pluraltheme/sms-ui-compose
+  sms_ui/summary-display:
+    - pluraltheme/summary-display
 regions:
   header: 'Header'
   navigation: Navigation

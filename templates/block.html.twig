@@ -42,8 +42,15 @@
  * @see template_process()
  */
 #}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
 {% if block.delta != 'main' %}
-<section{{ attributes }}>
+<section{{ attributes.addClass(classes) }}>
   {% endif %}
 
   {{ title_prefix }}
