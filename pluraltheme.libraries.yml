@@ -22,6 +22,7 @@ global-css:
       css/featured.css: {}
       css/services.css: {}
       css/node.css: {}
+      css/form.css: {}
       css/search.css: {}
       css/comment.css: {}
       css/footer.css: {}

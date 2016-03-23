@@ -1,6 +1,7 @@
 /**
  * Styles for blocks in the sidebars.
  */
+ /* check styles before uncommenting *//*
 .region-sidebar-first .block h2 {
   padding: 0 0 10px 0;
   font-size: 1.1em;
@@ -29,13 +30,14 @@
   padding: 10px;
 }
 
-/* Text field sizes in sidebars. */
+
 .region-sidebar-first input.form-text,
 .region-sidebar-second input.form-text {
   width: 100%;
 }
 
-/** Main content block */
+
 #block-pluraltheme-content.block {
   margin: 10px 0;
 }
+*/
