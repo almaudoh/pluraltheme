@@ -1,3 +1,33 @@
+<div id="toTop"><span class="glyphicon glyphicon-chevron-up"></span></div>
+
+<div class="banner-contact"> <div class="container">  Questions? Need Help? contact us on <div class="header-phone"> <span class="fa fa-phone"></span>  234-703-456-7890 </div> </div> </div>
+
+    <div class="container">
+        <div class="nav-main-block">
+            <nav class="navbar" role="navigation">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-th fa-2x"></span>
+                    </button>
+
+                    {% if page.site_brand %}
+                        <div class="navbar-brand">
+                            {{ page.site_brand }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                {% if page.navigation %}
+                    {{ page.navigation }}
+                {% endif %}
+								
+            </nav>
+        </div>
+		 </div>
+
 <div class="content-page clearfix">
 
     {# Help #}
@@ -31,6 +61,16 @@
     </div>
 </div>
 
+
+{% if page.pre_footer %}
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          {{ page.pre_footer }}
+        </div>
+      </div>
+    </div>
+{% endif %}
 
 
 <footer class="footer clearfix">

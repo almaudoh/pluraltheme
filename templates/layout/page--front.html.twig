@@ -22,17 +22,16 @@
 
                 </div>
 
-                <!-- Navigation -->
                 {% if page.navigation %}
                     {{ page.navigation }}
                 {% endif %}
-                <!--End Navigation -->
+								
             </nav>
         </div>
 
 
 
-
+     {% if logged_in %}
 
 
         {% if page.banner_left %}
@@ -43,8 +42,7 @@
           </div>
         {% endif %}
 
-
-
+			
         {% if page.sign_in_block or page.sign_up_block %}
           <div class="col-md-6 banner-info-right">
               <div class="sap_tabs">
@@ -77,6 +75,14 @@
               </div>
           </div>
         {% endif %}
+				
+				 {% else %}
+				 
+				 <div class="col-md-12">
+             {{ page.banner_left }}
+            </div>
+				 
+				  {% endif %}
 
         <div class="clearfix"> </div>
     </div>
