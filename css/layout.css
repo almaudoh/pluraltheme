@@ -1,0 +1,26 @@
+@media only screen and (min-width: 64.0625em){
+
+.large-push-3 {
+    position: relative;
+    left: 25%;
+    right: auto; }
+
+  .large-push-4 {
+    position: relative;
+    left: 33.33333%;
+    right: auto; }
+	
+	.large-pull-6 {
+    position: relative;
+    right: 50%;
+    left: auto; }
+.large-pull-8 {
+    position: relative;
+    right: 66.66667%;
+    left: auto; }
+}
+/*
+.section-featured, .content-page {
+    padding: 5em 0;
+}
+*/

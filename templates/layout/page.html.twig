@@ -1,0 +1,55 @@
+<div class="content-page clearfix">
+
+    {# Help #}
+    {% if page.help %}
+        {% block help %}
+            {{ page.help }}
+        {% endblock %}
+    {% endif %}
+
+    <div class="container">
+        <div class="row">
+
+            <div id="main" class="{{ main_grid_class }}">
+                <a id="main-content"></a>
+                {% if breadcrumb %} <div id="breadcrumb" class="clearfix"> {{ breadcrumb }} </div> {% endif %}
+
+                {% if title and not is_front %}
+                    {{ title_prefix }}
+                    <h3 id="page-title" class="title"> {{ title }} </h3> {{ title_suffix }}
+                {% endif %}
+                {{ page.content }}
+            </div>
+
+            {% if page.sidebar_first %}
+                <section id="sidebar-first" class="{{ sidebar_first_grid_class }} sidebar clearfix">
+                    {{ page.sidebar_first }}
+                </section>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+
+<footer class="footer clearfix">
+
+    {% if page.footer %}
+        <section class="footer-region clearfix">
+            <div class="container">
+                <div class="row">
+                    {{ page.footer }}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    <div class="col-sm-12">
+        <p class="copyright text-center">
+            &copy; {{ "now"|date('Y') }} {{ site_name }} {{ 'All rights reserved.'|t }}
+        </p>
+    </div>
+</footer>
+
+<div class="border-page top"></div><div class="border-page lft"></div><div class="border-page rgt"></div><div class="border-page btm"></div>

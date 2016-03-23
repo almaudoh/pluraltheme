@@ -1,0 +1,161 @@
+<div id="toTop"><span class="glyphicon glyphicon-chevron-up"></span></div>
+
+<div class="banner-contact"> <div class="container">  Questions? Need Help? contact us on <div class="header-phone"> <span class="fa fa-phone"></span>  234-703-456-7890 </div> </div> </div>
+
+
+<div class="banner">
+    <div class="container">
+        <div class="nav-main-block">
+            <nav class="navbar" role="navigation">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-th fa-2x"></span>
+                    </button>
+
+                    {% if page.site_brand %}
+                        <div class="navbar-brand">
+                            {{ page.site_brand }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                <!-- Navigation -->
+                {% if page.navigation %}
+                    {{ page.navigation }}
+                {% endif %}
+                <!--End Navigation -->
+            </nav>
+        </div>
+
+
+
+
+
+
+        {% if page.banner_left %}
+          <div class="banner-info">
+            <div class="col-md-6 banner-info-left">
+             {{ page.banner_left }}
+            </div>
+          </div>
+        {% endif %}
+
+
+
+        {% if page.sign_in_block or page.sign_up_block %}
+          <div class="col-md-6 banner-info-right">
+              <div class="sap_tabs">
+                  <div id="horizontalTab">
+                      <ul class="resp-tabs-list">
+                          <li class="resp-tab-item grid1" aria-controls="tab_item-0" role="tab"><span>Sign In</span></li>
+                          <li class="resp-tab-item grid2" aria-controls="tab_item-1" role="tab"><span>Sign Up</span></li>
+                          <div class="clear"></div>
+                      </ul>
+
+
+                      <div class="resp-tabs-container">
+                          <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                              <div class="facts">
+                                  <div class="sign-in-form">
+                                      {{ page.sign_in_block }}
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+                              <div class="facts">
+                                  <div class="sign-in-form">
+                                      {{ page.sign_up_block }}
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+        {% endif %}
+
+        <div class="clearfix"> </div>
+    </div>
+    </div>
+
+{% if page.featured_first or page.featured_middle or page.featured_last %}
+    <section id="features" class="features">
+        <div class="container">
+
+            {% if page.featured_first %}
+                <div class="col-md-4">
+                    {{ page.featured_first }}
+                </div>
+            {% endif %}
+
+            {% if page.featured_middle %}
+                <div class="col-md-4">
+                    {{ page.featured_middle }}
+                </div>
+            {% endif %}
+
+            {% if page.featured_last %}
+                <div class="col-md-4">
+                    {{ page.featured_last }}
+                </div>
+            {% endif %}
+
+        </div>
+    </section>
+{% endif %}
+
+{% if page.panel_left or page.panel_right %}
+ <section id="services" class="services">
+     <div class="container">
+
+        {% if page.panel_left %}
+            <div class="col-md-6">
+                {{ page.panel_left }}
+            </div>
+        {% endif %}
+
+        {% if page.panel_right %}
+            <div class="col-md-6">
+                {{ page.panel_right }}
+            </div>
+        {% endif %}
+
+     </div>
+ </section>
+{% endif %}
+
+{% if page.pre_footer %}
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          {{ page.pre_footer }}
+        </div>
+      </div>
+    </div>
+{% endif %}
+
+
+<footer class="footer clearfix">
+
+    {% if page.footer %}
+        <section class="footer-region clearfix">
+            <div class="container">
+                <div class="row">
+                    {{ page.footer }}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    <div class="col-sm-12">
+        <p class="copyright text-center">
+            &copy; {{ "now"|date('Y') }} {{ site_name }} {{ 'All rights reserved.'|t }}
+        </p>
+    </div>
+</footer>
+
+<div class="border-page top"></div><div class="border-page lft"></div><div class="border-page rgt"></div><div class="border-page btm"></div>

@@ -1,34 +1,29 @@
-global-styling:
+bootstrap:
   version: VERSION
   css:
-    base:
-      css/foundation/foundation.min.css: {}
     theme:
-      css/foundation/normalize.css: {}
-      css/layouts/layout.css: { }
-      css/components/base.css: { }
-      css/components/block.css: { }
-      css/components/breadcrumb.css: { }
-      css/components/comments.css: { }
-      css/components/featured.css: { }
-      css/components/fonts.css: { }
-      css/components/form.css: { }
-      css/components/menu-primary.css: { }
-      css/components/menu-side.css: { }
-      css/components/menu-tabs.css: { }
-      css/components/messages.css: { }
-      css/components/page-title.css: { }
-      css/components/tables.css: { }
-      css/components/typography.css: { }
+      includes/bootstrap/css/bootstrap.min.css: {}
+      includes/fontawesome/css/font-awesome.min.css: {}
+  js:
+    includes/bootstrap/js/bootstrap.min.js: {}
+  dependencies:
+    - core/jquery
 
-summary-display:
+global-css:
   version: VERSION
   css:
-    component:
-      css/sms_ui/summary-display.css: { }
-
-user-login:
-  version: VERSION
-  css:
-    component:
-      css/layouts/user-login.css: { }
+    theme:
+      css/elements.css: {}
+      css/layout.css: {}
+      css/header.css: {}
+      css/block.css: {}
+      css/menu.css: {}
+      css/banner.css: {}
+      css/featured.css: {}
+      css/node.css: {}
+      css/search.css: {}
+      css/comment.css: {}
+      css/footer.css: {}
+  js:
+    js/to-top.js: {}
+    js/easyResponsiveTabs.js: {}
