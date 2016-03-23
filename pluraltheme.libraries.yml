@@ -20,6 +20,7 @@ global-css:
       css/menu.css: {}
       css/banner.css: {}
       css/featured.css: {}
+      css/services.css: {}
       css/node.css: {}
       css/search.css: {}
       css/comment.css: {}
@@ -27,3 +28,14 @@ global-css:
   js:
     js/to-top.js: {}
     js/easyResponsiveTabs.js: {}
+summary-display:
+  version: VERSION
+  css:
+    component:
+      css/sms_ui/summary-display.css: { }
+
+user-login:
+  version: VERSION
+  css:
+    component:
+      css/layouts/user-login.css: { }

@@ -1,0 +1,51 @@
+
+body {
+    line-height: 1.5em;
+    color: #27343C;
+    background: #BED9EB url(../../images/envelope_bg.gif) repeat-x 0 0;
+}
+
+/* Region Layout Styles. */
+.layout-container {
+  padding: 0;
+  margin: 0 auto; /* Center on Page */
+  text-align: left; /* Reset text alignment */
+}
+
+/* Top banner image */
+.header-image,
+.layout-container {
+  max-width: 960px;
+  width: 100%;
+}
+
+.region-content {
+  padding: 10px;
+  margin: 0;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Londrina+Sketch);
+  
+.region-intro-text {
+	text-align: center;
+	max-width: 680px;
+	margin: 50px auto 0;
+  font-family: "Londrina Sketch", sans-serif;
+	font-weight: 100;
+	font-size: 2rem;
+	
+}
+
+.intro_text {
+	/*background: url(../images/friends.jpg);*/
+	min-height: 300px;
+	background: #E9F4FB none repeat scroll 0% 0%;
+}
+
+#footer {
+  /* background: url(images/fbg.png) repeat 0 0; */
+  border-top: 6px #ff8034 solid;
+  padding: 25px 0 10px 0;
+  overflow: hidden;
+  clear: both;
+}
