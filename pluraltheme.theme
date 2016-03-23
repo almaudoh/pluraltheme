@@ -3,7 +3,7 @@
 
 /**
  * @file
- * Functions to support theming in the musictheme theme.
+ * Functions to support theming in the pluraltheme theme.
  */
 
 use Drupal\Core\Template\Attribute;
@@ -14,7 +14,7 @@ use Drupal\Core\Template\Attribute;
  * Adds body classes if certain regions have content.
  */
 
-function musictheme_preprocess_breadcrumb(&$variables){
+function pluraltheme_preprocess_breadcrumb(&$variables){
   if(($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']){
     $variables['breadcrumb'][] = array(
       'text' => $node->getTitle()
@@ -25,7 +25,7 @@ function musictheme_preprocess_breadcrumb(&$variables){
 /**
  * HTML5 placeholder attribute in search form
  */
-function musictheme_form_search_block_form_alter(&$form, &$form_state) {
+function pluraltheme_form_search_block_form_alter(&$form, &$form_state) {
   $form['keys']['#attributes']['placeholder'] = t('Search');    
 }
 
@@ -34,7 +34,7 @@ function musictheme_form_search_block_form_alter(&$form, &$form_state) {
  *
  * Alters the login form to use placeholder attributes and hides the titles.
  */
-function musictheme_form_user_login_form_alter(&$form, $form_state) {
+function pluraltheme_form_user_login_form_alter(&$form, $form_state) {
   // Hide the username textfield label and use a placeholder instead.
   $form['name']['#title_display'] = 'invisible';
   $form['name']['#placeholder'] = $form['name']['#description'];
@@ -49,7 +49,7 @@ function musictheme_form_user_login_form_alter(&$form, $form_state) {
 /**
  * Implements hook_preprocess_HOOK() for page templates.
  */
-function musictheme_preprocess_page_title(&$variables) {
+function pluraltheme_preprocess_page_title(&$variables) {
   // Since the title and the shortcut link are both block level elements,
   // positioning them next to each other is much simpler with a wrapper div.
   if (!empty($variables['title_suffix']['add_or_remove_shortcut']) && $variables['title']) {
@@ -68,18 +68,32 @@ function musictheme_preprocess_page_title(&$variables) {
   }
 }
 
-function musictheme_preprocess_page(&$variables) {
+function pluraltheme_preprocess_page(&$variables) {
 
   
   $sidebar_first = $variables['page']['sidebar_first'];
+  $sidebar_second = $variables['page']['sidebar_second'];
   
-  if ($sidebar_first) {
+  // Dynamic sidebars
+  if($sidebar_first && $sidebar_second) {
+    $variables['main_grid_class'] = 'col-md-6 large-push-3';
+    $variables['sidebar_first_grid_class'] = 'col-md-3 large-pull-6';
+    $variables['sidebar_second_grid_class'] = 'col-md-3';
+  }
+  elseif (!$sidebar_first && $sidebar_second) {
+    $variables['main_grid_class'] = 'col-md-8';
+    $variables['sidebar_first_grid_class'] = '';
+    $variables['sidebar_second_grid_class'] = 'col-md-4';
+  }
+  elseif ($sidebar_first && !$sidebar_second) {
     $variables['main_grid_class'] = 'col-md-8 large-push-4';
     $variables['sidebar_first_grid_class'] = 'col-md-4 large-pull-8';
+    $variables['sidebar_second_grid_class'] = '';
   }
   else {
     $variables['main_grid_class'] = 'col-md-12';
     $variables['sidebar_first_grid_class'] = '';
+    $variables['sidebar_second_grid_class'] = '';
   }
 
 }
@@ -87,7 +101,7 @@ function musictheme_preprocess_page(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for maintenance-page.html.twig.
  */
-function musictheme_preprocess_maintenance_page(&$variables) {
+function pluraltheme_preprocess_maintenance_page(&$variables) {
   // By default, site_name is set to Drupal if no db connection is available
   // or during site installation. Setting site_name to an empty string makes
   // the site and update pages look cleaner.
@@ -100,7 +114,7 @@ function musictheme_preprocess_maintenance_page(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for block.html.twig.
  */
-function musictheme_preprocess_block(&$variables) {
+function pluraltheme_preprocess_block(&$variables) {
   // Add a clearfix class to system branding blocks.
   if ($variables['plugin_id'] == 'system_branding_block') {
     $variables['attributes']['class'][] = 'clearfix';
@@ -110,14 +124,14 @@ function musictheme_preprocess_block(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for menu.html.twig.
  */
-function musictheme_preprocess_menu(&$variables) {
+function pluraltheme_preprocess_menu(&$variables) {
   $variables['attributes']['class'][] = 'clearfix';
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
  */
-function musictheme_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+function pluraltheme_theme_suggestions_form_alter(array &$suggestions, array $variables) {
   if ($variables['element']['#form_id'] == 'search_block_form') {
     $suggestions[] = 'form__search_block_form';
   }
