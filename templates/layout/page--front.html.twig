@@ -31,7 +31,7 @@
 
 
 
-     {% if not logged_in %}
+
 
 
         {% if page.banner_left %}
@@ -42,45 +42,25 @@
           </div>
         {% endif %}
 
+        {% if not logged_in %}
 			
-        {% if page.sign_in_block or page.sign_up_block %}
+        {% if page.user_block %}
+         <div class="user-block">
           <div class="col-md-6 banner-info-right">
-              <div class="sap_tabs">
-                  <div id="horizontalTab">
-                      <ul class="resp-tabs-list">
-                          <li class="resp-tab-item grid1" aria-controls="tab_item-0" role="tab"><span>Sign In</span></li>
-                          <li class="resp-tab-item grid2" aria-controls="tab_item-1" role="tab"><span>Sign Up</span></li>
-                          <div class="clear"></div>
-                      </ul>
-
-
-                      <div class="resp-tabs-container">
-                          <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                              <div class="facts">
-                                  <div class="sign-in-form">
-                                      {{ page.sign_in_block }}
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-                              <div class="facts">
-                                  <div class="sign-in-form">
-                                      {{ page.sign_up_block }}
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                  </div>
-              </div>
+             {{ page.user_block }}
           </div>
+         </div>
         {% endif %}
 				
-				 {% else %}
-				 
-				 <div class="col-md-12">
-             {{ page.banner_left }}
-            </div>
+     {% else %}
+
+         {% if page.banner_right %}
+             <div class="banner-info">
+                 <div class="col-md-6 banner-info-right">
+                     {{ page.banner_right }}
+                 </div>
+             </div>
+         {% endif %}
 				 
 				  {% endif %}
 
