@@ -129,7 +129,7 @@ body a:hover{
 }
 .more a{
 	padding:11px 30px;
-	background: #803F5F;
+	background: #3D8A5C;
     font-size: 16px;
 	color:#fff;
 	transition:.5s all;
@@ -140,7 +140,7 @@ body a:hover{
 }
 .more a:hover{
 	background:#fff;
-	color: #803F5F;
+	color: #6d8065;
 }
 .sap_tabs {
        background-color: #fff;
