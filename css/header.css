@@ -27,4 +27,9 @@
 	display: block; 
 	width: 100%; 
 	margin: 0px;
-} 
+}
+
+/* this is just a temporary style. @todo i will make this better */
+.not-front .header {
+	background: blue;
+}
