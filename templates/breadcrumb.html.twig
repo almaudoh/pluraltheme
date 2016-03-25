@@ -5,15 +5,15 @@
  *
  * Available variables:
  * - breadcrumb: Breadcrumb trail items.
+ * - title: The current page title.
  */
 #}
 {% if breadcrumb %}
-  <ol {{ attributes.addClass('breadcrumb') }}>
-    {% if breadcrumb_text %}
-      <li class = 'breadcrumb-title'> {{ breadcrumb_text }} </li>
-    {% endif %}
+  <nav role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">{{ 'You are here'|t }}</h2>
+    <ul class="breadcrumbs">
     {% for item in breadcrumb %}
-      <li class = "item-{{ loop.index }} {{ item.attributes.class }}">
+      <li>
         {% if item.url %}
           <a href="{{ item.url }}">{{ item.text }}</a>
         {% else %}
@@ -21,5 +21,7 @@
         {% endif %}
       </li>
     {% endfor %}
-  </ol>
+      <li class="current"><a href="#">{{ title }}</a></li>
+    </ul>
+  </nav>
 {% endif %}

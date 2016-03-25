@@ -8,6 +8,9 @@ core: '8.x'
 libraries:
   - pluraltheme/bootstrap
   - pluraltheme/global-css
+libraries-extend:
+  sms_ui/summary-display:
+    - pluraltheme/summary-display
 
 # version: VERSION
 

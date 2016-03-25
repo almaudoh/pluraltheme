@@ -1,0 +1,26 @@
+{{ attach_library('pluraltheme/user-login') }}
+<section class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <header class="row">
+    </header>
+
+    <div class="row main-content user-login">
+      {% if page.header %}
+        <div class="column">
+          {{ page.header }}
+        </div>
+      {% endif %}
+      <div id="main" class="{{ main_grid }} columns">
+        <a id="main-content" tabindex="-1"></a>
+        {{ page.content }}
+        <div style="text-align: center; padding: 5px;">
+          <a href="http://www.greenlandtechnology.com/"> A GreenLand Technologies SMS Company </a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="layout-footer-bottom row">
+      {{ page.footer_bottom }}
+    </footer>
+  </div>
+</section>
