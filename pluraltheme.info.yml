@@ -1,27 +1,37 @@
-name: 'Plural Theme'
+name: pluraltheme
 type: theme
 base theme: classy
-description: 'A responsive theme for PluralSMS website based on Zurb Foundation Framework with D8.'
-version: VERSION
-core: 8.x
+description: 'A customized mobile first theme for Music Access Project based on bootstrap framework'
+package: Core
+core: '8.x'
+
 libraries:
-  - pluraltheme/global-styling
+  - pluraltheme/bootstrap
+  - pluraltheme/global-css
 libraries-extend:
   sms_ui/summary-display:
     - pluraltheme/summary-display
+
+# version: VERSION
+
 regions:
-  header: 'Header'
-  navigation: Navigation
+  navigation: 'Navigation'
+  site_brand: 'Site Branding'
+  header_right: 'Header Right'
+  banner_left: 'Banner Left'
+  banner_right: 'Banner Right'
+  user_block: 'User Block'
+  featured_first: 'Featured First'
+  featured_middle: 'Featured Middle'
+  featured_last: 'Featured Last'
+  panel_left: 'Panel Left'
+  panel_right: 'Panel Right'
   help: 'Help'
-  banner: Banner
-  intro_text: 'Introduction Text'
-  featured_top_first: 'Featured top first'
-  featured_top_second: 'Featured top second'
-  featured_top_third: 'Featured top third'
-  content_banner: 'Node Banner'
-  content: 'Main content'
-  sidebar_first: 'First sidebar'
-  sidebar_second: 'Second sidebar'
-  footer_top_first: 'Footer top first'
-  footer_top_second: 'Footer top second'
-  footer_bottom: 'Footer bottom'
+  content: 'Main Content'
+  sidebar_first: 'Sidebar First'
+  pre_footer: 'Pre Footer'
+  footer: 'Footer'
+
+version: 8.x-3.x-dev
+project: musictheme
+

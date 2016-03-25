@@ -1,0 +1,124 @@
+/**
+ * Styles for blocks in the sidebars.
+ */
+ /* check styles before uncommenting *//*
+.region-sidebar-first .block h2 {
+  padding: 0 0 10px 0;
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
+
+.region-sidebar-first .block {
+  border: 1px solid #000000;
+  background: #ffffff;
+}
+
+.region-sidebar-second .block h2 {
+  padding: 0 0 10px 0;
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
+
+.region-sidebar-second .block {
+  border: 1px solid #000000;
+  background: #DEDEDE;
+}
+
+.region-sidebar-first .block,
+.region-sidebar-second .block {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+
+.region-sidebar-first input.form-text,
+.region-sidebar-second input.form-text {
+  width: 100%;
+}
+
+
+#block-pluraltheme-content.block {
+  margin: 10px 0;
+}
+*/
+
+/* user login block frontpage */
+.banner-info-right {
+    background-color: rgba(5, 8, 9, 0.2);
+    padding-bottom: 25px;
+}
+
+#block-userlogin {
+    padding: 10px 10% 0 10%;/*
+    background-color: rgba(5, 8, 9, 0.2);*/
+}
+
+
+
+#block-userlogin h2 .block-title {
+    border: 1px solid #fff;
+    text-shadow: none;
+    color: #fff;
+    background: rgba(2, 2, 2, 0.60);
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+
+    cursor: pointer;
+    padding: 5px 30px;
+    margin: 5px;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+
+#block-userlogin input#edit-name, #block-userlogin input#edit-pass {
+    outline: none;
+    font-size: 16px;
+    font-family: Nunito-Light;
+    color: #fff;
+    padding: 15px 10px;
+    border: none;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    width: 100%;
+    margin: 0 0 15px 0;
+    background: rgba(2, 2, 2, 0.60);
+}
+
+
+
+#block-userlogin input#edit-submit{
+    background: rgba(2, 2, 2, 0.60);
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 18px;
+    font-family: Nunito-Light;
+    padding: 15px 10px 15px 15px;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    margin-top: 24px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#block-userlogin .item-list ul li {
+    list-style: none;
+    float: left;
+}
+#block-userlogin .item-list ul li a {
+    color: #fbfbdd;
+    font-size: 18px;
+}

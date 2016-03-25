@@ -1,0 +1,106 @@
+<div id="toTop"><span class="glyphicon glyphicon-chevron-up"></span></div>
+
+<div class="banner-contact"> <div class="container">  Questions? Need Help? contact us on <div class="header-phone"> <span class="fa fa-phone"></span>  234-703-456-7890 </div> </div> </div>
+<div class="header">
+    <div class="container">
+        <div class="nav-main-block">
+            <nav class="navbar" role="navigation">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-th fa-2x"></span>
+                    </button>
+
+                    {% if page.site_brand %}
+                        <div class="navbar-brand">
+                            {{ page.site_brand }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                {% if page.navigation %}
+                    {{ page.navigation }}
+                {% endif %}
+								
+            </nav>
+        </div>
+		 </div>
+ </div>
+
+<div class="content-page clearfix">
+
+   
+      {% if page.content_banner %}
+        <div class="content-banner">
+          <div class="large-12 columns">
+            {{ page.content_banner }}
+          </div>
+        </div>
+      {% endif %}
+
+
+    <div class="container">
+        <div class="row">
+
+        <div id="main" class="{{ main_grid_class }}">
+            <a id="main-content"></a>
+            {% if breadcrumb %} <div id="breadcrumb" class="clearfix"> {{ breadcrumb }} </div> {% endif %}
+
+            {% if title and not is_front %}
+                {{ title_prefix }}
+                <h3 id="page-title" class="title"> {{ title }} </h3> {{ title_suffix }}
+            {% endif %}
+            {{ page.content }}
+        </div>
+
+        {% if page.sidebar_first %}
+          <section id="sidebar-first" class="{{ sidebar_first_grid_class }} sidebar clearfix">
+           {{ page.sidebar_first }}
+          </section>
+        {% endif %}
+
+        {% if page.sidebar_second %}
+          <section id="sidebar-second" class="{{ sidebar_second_grid_class }} sidebar clearfix">
+           {{ page.sidebar_second }}
+          </section>
+        {% endif %}
+
+
+        </div>
+    </div>
+  </div>
+
+
+{% if page.pre_footer %}
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          {{ page.pre_footer }}
+        </div>
+      </div>
+    </div>
+{% endif %}
+
+
+<footer class="footer clearfix">
+
+    {% if page.footer %}
+        <section class="footer-region clearfix">
+            <div class="container">
+                <div class="row">
+                    {{ page.footer }}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    <div class="col-sm-12">
+        <p class="copyright text-center">
+            &copy; {{ "now"|date('Y') }} {{ site_name }} {{ 'All rights reserved.'|t }}
+        </p>
+    </div>
+</footer>
+
+<div class="border-page top"></div><div class="border-page lft"></div><div class="border-page rgt"></div><div class="border-page btm"></div>

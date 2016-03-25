@@ -1,14 +1,11 @@
 <?php
 
-/**
- * Load template files
- */
 
 /**
- * Implements hook_form_alter().
- *
- * Alters the login form to use placeholder attributes and hides the titles.
+ * @file
+ * Functions to support theming in the pluraltheme theme.
  */
+
 function pluraltheme_form_user_login_form_alter(&$form, $form_state) {
   // Hide the username textfield label and use a placeholder instead.
   $form['name']['#title_display'] = 'invisible';
@@ -55,19 +52,6 @@ function pluraltheme_preprocess_block(&$variables) {
     $variables['attributes']['class'][] = $variables['attributes']['id'];
   }
 
-  switch ($region) {
-    // Add a striping class
-    case 'sidebar_first':
-    case 'sidebar_second':
-      #$variables['attributes']['class'][] = 'block-' . $variables['zebra'];
-    break;
-
-    case 'header':
-      $variables['attributes']['class'][] = 'header';
-    break;
-
-    default;
-  }
 }
 
 /**
@@ -272,34 +256,6 @@ function pluraltheme_preprocess_page(&$variables) {
     $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->bundle();
   }
 
-  $variables['logo_img'] = '';
-  if (!empty($variables['logo'])) {
-    $elements = array(
-      '#theme' => 'image',
-      '#attributes' => array(
-        'src' => $variables['logo'],
-        'alt' => strip_tags($site_name) . ' ' . t('logo'),
-        'title' => strip_tags($site_name) . ' ' . t('Home'),
-        'class' => array('logo'),
-      )
-    );
-
-    $variables['logo_img'] = $elements;
-  }
-
-  $title = strip_tags($site_name) . ' ' . t('Home');
-  $url = \Drupal\Core\Url::fromRoute('<front>');
-  $url->setOption('attributes', array('title' => $title));
-
-  $variables['linked_logo'] = '';
-  if (!empty($variables['logo_img'])) {
-    $variables['linked_logo'] = \Drupal::l($variables['logo_img'], $url);
-  }
-
-  $variables['linked_site_name'] = '';
-  if (!empty($site_name)) {
-    $variables['linked_site_name'] = \Drupal::l($site_name, $url);
-  }
 
   // Remove blocks that are not main content from the 'user/login' page.
   if (\Drupal::routeMatch()->getRouteName() === 'user.login') {
@@ -314,37 +270,31 @@ function pluraltheme_preprocess_page(&$variables) {
     $variables['page']['sidebar_first'] = $variables['page']['sidebar_second'] = '';
   }
 
-  // Convenience variables
-  $left = $variables['page']['sidebar_first'];
-  $right = $variables['page']['sidebar_second'];
+  // Dynamic sidebars
+  $sidebar_first = $variables['page']['sidebar_first'];
+  $sidebar_second = $variables['page']['sidebar_second'];
 
   // Dynamic sidebars
-  if (!empty($left) && !empty($right)) {
-    $variables['main_grid'] = 'large-6 large-push-3';
-    $variables['sidebar_first_grid'] = 'large-3 large-pull-6';
-    $variables['sidebar_sec_grid'] = 'large-3';
+  if($sidebar_first && $sidebar_second) {
+    $variables['main_grid_class'] = 'col-md-6 large-push-3';
+    $variables['sidebar_first_grid_class'] = 'col-md-3 large-pull-6';
+    $variables['sidebar_second_grid_class'] = 'col-md-3';
   }
-  elseif (empty($left) && !empty($right)) {
-    $variables['main_grid'] = 'large-9';
-    $variables['sidebar_first_grid'] = '';
-    $variables['sidebar_sec_grid'] = 'large-3';
+  elseif (!$sidebar_first && $sidebar_second) {
+    $variables['main_grid_class'] = 'col-md-8';
+    $variables['sidebar_first_grid_class'] = '';
+    $variables['sidebar_second_grid_class'] = 'col-md-4';
   }
-  elseif (!empty($left) && empty($right)) {
-    $variables['main_grid'] = 'large-9 large-push-3';
-    $variables['sidebar_first_grid'] = 'large-3 large-pull-9';
-    $variables['sidebar_sec_grid'] = '';
+  elseif ($sidebar_first && !$sidebar_second) {
+    $variables['main_grid_class'] = 'col-md-8 large-push-4';
+    $variables['sidebar_first_grid_class'] = 'col-md-4 large-pull-8';
+    $variables['sidebar_second_grid_class'] = '';
   }
   else {
-    $variables['main_grid'] = 'large-12';
-    $variables['sidebar_first_grid'] = '';
-    $variables['sidebar_sec_grid'] = '';
-  }
-
-  // Add classes to highlighted region.
-  if (!empty($variables['page']['highlighted'])) {
-    $variables['page']['highlighted']['#attributes']['class'][] = 'region-highlighted';
-    $variables['page']['highlighted']['#attributes']['class'][] = 'panel';
-    $variables['page']['highlighted']['#attributes']['class'][] = 'callout';
+    $variables['main_grid_class'] = 'col-md-12';
+    $variables['sidebar_first_grid_class'] = '';
+    $variables['sidebar_second_grid_class'] = '';
   }
 
 }
+
