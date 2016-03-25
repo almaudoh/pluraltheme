@@ -3,7 +3,7 @@
  * Visual styles for Newsplus Lite's node component.
  */
 
-/*node*/
+/*node*//*
 .page-node- .field-name-body { margin-bottom: 20px; }
 
 .node { position: relative; }
@@ -30,11 +30,11 @@
     .node-teaser .field-type-image { margin-left: 0; float: none; max-width: 100%; }
     .node-teaser .field-name-body { clear: both; }
 }
-
+*/
 
 /*Node type: Post, Blog Entry, Article*/
 
-/*Node type: Post, Blog Entry, Article - Layout*/
+/*Node type: Post, Blog Entry, Article - Layout*//*
 .node--type-article .node-content { margin-left: 110px; }
 
 .node--view-mode-teaser .node-content,
@@ -65,25 +65,25 @@
 @media (max-width: 480px) {
     .node-content { margin-left: 75px; }
     .node-side { margin-top: 10px; float: left; top: 0; left: 0; text-align: center; width: 75px; font-size: 12px; padding: 0 15px 0 0; }
-}
+}*/
 
-/*Node type: Post, Blog Entry, Article - User info*/
+/*Node type: Post, Blog Entry, Article - User info*//*
 .user-info { margin-bottom: 40px; }
 
 .node-teaser .user-info { margin-bottom: 20px; }
 
 .user-info .user-picture { margin: 10px auto 0; }
 
-.user-info .user-name { margin-top: 10px; }
+.user-info .user-name { margin-top: 10px; }*/
 
-/*Node type: Post, Blog Entry, Article - Share links*/
+/*Node type: Post, Blog Entry, Article - Share links*//*
 .share-links { font-weight: 700; color: #464646; text-align: right; padding-bottom: 10px; border-bottom: 1px solid #d7d7d7; margin-bottom: 20px; }
 
 .share-links ul { list-style: none; margin: 10px 0 0 0; padding: 0; }
 
 .share-links ul li { font-size: 18px; font-weight: 400; margin-bottom: 5px; }
-
-/*Node type: Post, Blog Entry, Article - Submitted info, print, resize font buttons, post progress & reading time*/
+*/
+/*Node type: Post, Blog Entry, Article - Submitted info, print, resize font buttons, post progress & reading time*//*
 .submitted-info { font-weight: 700; color: #464646; text-align: right; padding-bottom: 5px; border-bottom: 1px solid #d7d7d7; margin-bottom: 20px; }
 
 .submitted-info-item { margin-bottom: 15px; }
@@ -115,13 +115,13 @@
 @media (min-width: 992px) {
     .post-progress { display: block; }
 }
-
-/*Node type: Post, Blog Entry, Article - Affix*/
+*/
+/*Node type: Post, Blog Entry, Article - Affix*//*
 #affix.affix { position: fixed; width: 60px; }
 #affix.affix .share-links { margin-top: 0; }
 #affix.affix-bottom { position: absolute; width: 60px; }
-
-/*Node type: Post, Blog Entry, Article - Node info*/
+*/
+/*Node type: Post, Blog Entry, Article - Node info*//*
 .node-info { margin-bottom: 35px; font-size: 11px; color: #7d7d7d; }
 
 .node-teaser .node-info { margin-bottom: 15px; margin-top: -15px; }
@@ -138,8 +138,8 @@
     margin-bottom: 15px;
 }
 .node__meta .field--name-field-user-picture img {
-    float: left; /* LTR */
-    margin: 1px 20px 0 0; /* LTR */
+    float: left; 
+    margin: 1px 20px 0 0; 
 }
 .post-info {
     font-size: 10px;

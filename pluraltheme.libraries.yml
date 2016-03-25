@@ -29,6 +29,7 @@ global-css:
   js:
     js/to-top.js: {}
     js/easyResponsiveTabs.js: {}
+
 summary-display:
   version: VERSION
   css:

@@ -40,30 +40,37 @@
         </div>
       {% endif %}
 
-      <div class="row main-content">
-        <div id="main" class="{{ main_grid }} columns">
-          <a id="main-content" tabindex="-1"></a>
-          {% if breadcrumb %} {{ breadcrumb }} {% endif %}
-          {% if title and not is_front %}
-            {{ title_prefix }}
-            <h1 id="page-title" class="title">{{ title }}</h1>
-            {{ title_suffix }}
-          {% endif %}
-          {{ page.content }}
+
+    <div class="container">
+        <div class="row">
+
+        <div id="main" class="{{ main_grid_class }}">
+            <a id="main-content"></a>
+            {% if breadcrumb %} <div id="breadcrumb" class="clearfix"> {{ breadcrumb }} </div> {% endif %}
+
+            {% if title and not is_front %}
+                {{ title_prefix }}
+                <h3 id="page-title" class="title"> {{ title }} </h3> {{ title_suffix }}
+            {% endif %}
+            {{ page.content }}
         </div>
+
         {% if page.sidebar_first %}
-          <div id="sidebar-first"
-               class="{{ sidebar_first_grid }} columns sidebar ">
-            {{ page.sidebar_first }}
-          </div>
+          <section id="sidebar-first" class="{{ sidebar_first_grid_class }} sidebar clearfix">
+           {{ page.sidebar_first }}
+          </section>
         {% endif %}
+
         {% if page.sidebar_second %}
-          <div id="sidebar-second"
-               class="{{ sidebar_sec_grid }} columns sidebar">
-            {{ page.sidebar_second }}
-          </div>
+          <section id="sidebar-second" class="{{ sidebar_second_grid_class }} sidebar clearfix">
+           {{ page.sidebar_second }}
+          </section>
         {% endif %}
-      </div>
+
+
+        </div>
+    </div>
+  </div>
 
 
 {% if page.pre_footer %}
