@@ -41,10 +41,16 @@ body a:hover{
 
 .navbar-brand a {
 	color: #fff !important; 
-	font-size: 3.5em;
 	text-decoration: none; 
 	font-family: 'YesevaOne-Regular';
 }
+
+@media (min-width: 760px){
+.navbar-brand a {
+	font-size: 3.5em;
+}
+}
+
 .navbar {
 	background: none;
 	border: none;
