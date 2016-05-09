@@ -1,0 +1,15 @@
+{#
+/**
+ * Available variables:
+ * - title: The title that will be displayed under this icon
+ * - type: The type of icon do display in the circle. E.g. 'terminal', 'laptop',
+ *         'video-camera', 'gear'.
+ */
+#}
+<div class="col-md-3 col-sm-3 text-center">
+    <span class="fa-stack fa-lg fa-4x">
+      <i class="fa fa-circle fa-stack-2x fa-color"></i>
+      <i class="fa fa-{{ type }} fa-stack-1x fa-inverse"></i>
+    </span>
+    <h3>{{ title }}</h3>
+</div>
