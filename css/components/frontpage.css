@@ -150,3 +150,8 @@
   position: relative;
   width: 700px;
 }
+
+/* This is for bootstrap front page */
+.front-section .row {
+  max-width: 100%;
+}

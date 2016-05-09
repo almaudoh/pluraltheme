@@ -3,7 +3,7 @@ global-styling:
   css:
     base:
       css/foundation/foundation.min.css: {}
-    theme:
+    components:
       css/foundation/normalize.css: {}
       css/layouts/layout.css: { }
       css/components/base.css: { }
@@ -32,3 +32,23 @@ user-login:
   css:
     component:
       css/layouts/user-login.css: { }
+
+bootstrap:
+  css:
+    theme:
+      css/bootstrap/bootstrap.css: { }
+
+font-awesome:
+  css:
+    theme:
+      css/bootstrap/font-awesome.css: { }
+
+bootstrap-js:
+  js:
+    js/bootstrap.js: { }
+  dependencies:
+    - core/jquery
+
+wow:
+  js:
+    js/wow.js: { }

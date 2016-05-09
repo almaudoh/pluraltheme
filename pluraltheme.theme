@@ -4,6 +4,14 @@
  * Load template files
  */
 
+function pluraltheme_theme() {
+  return [
+    'circled_icon' => array(
+      'variables' => array('title' => NULL, 'icon' => NULL),
+    ),
+  ];
+}
+
 /**
  * Implements hook_form_alter().
  *
@@ -346,5 +354,11 @@ function pluraltheme_preprocess_page(&$variables) {
     $variables['page']['highlighted']['#attributes']['class'][] = 'panel';
     $variables['page']['highlighted']['#attributes']['class'][] = 'callout';
   }
+
+  $variables['page']['section_two'] = [
+    '#type' => 'circled_icon',
+    '#title' => 'The title of the icon',
+    '#icon' => 'terminal',
+  ];
 
 }
