@@ -21,6 +21,11 @@ global-styling:
       css/components/tables.css: { }
       css/components/typography.css: { }
 
+frontpage:
+  css:
+    theme:
+      css/components/frontpage.css: { }
+
 summary-display:
   version: VERSION
   css:

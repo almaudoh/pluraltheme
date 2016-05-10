@@ -152,6 +152,11 @@
 }
 
 /* This is for bootstrap front page */
-.front-section .row {
+.section-front .row {
   max-width: 100%;
+  width: 100%;
+}
+
+.fa-color {
+  color: #0678be;
 }
