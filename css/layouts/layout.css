@@ -2,7 +2,7 @@
 body {
     line-height: 1.5em;
     color: #27343C;
-    background: #BED9EB url(../../images/envelope_bg.gif) repeat-x 0 0;
+    /* background: #BED9EB url(../../images/envelope_bg.gif) repeat-x 0 0; */
 }
 
 /* Region Layout Styles. */

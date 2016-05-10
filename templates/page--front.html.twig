@@ -46,6 +46,9 @@
 {{ attach_library('pluraltheme/bootstrap') }}
 {{ attach_library('pluraltheme/font-awesome') }}
 {{ attach_library('pluraltheme/frontpage') }}
+
+{{ page.navigation }}
+
     <section class="region-section-one section-front">
       <div class="container">
         <div class="row">
@@ -93,30 +96,13 @@
 
     </section>
     <section class="region-section-three slogan section-front">
-      <h1>Take a closer look</h1>
-      <p>Lorem Ispum Lorem Ispum Lorem Lispum Lorem Ispum Lorem Ispum Lorem LispumLorem Ispum Lorem Ispum Lorem Lispum Lorem Ispum Lorem Ispum Lorem Lispum</p>
-      <a href="#" class="btn btn-lg btn-default">More Info</a>
+      {{ page.section_three }}
     </section>
 
     <section class="region-section-four section-front">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <h2>Business themes include...</h2>
-            <ul class="feature-list">
-              <li><i class="glyphicon glyphicon-ok"> Bootstrap 3 Framework</i> </li>
-              <li><i class="glyphicon glyphicon-ok"> Mobile Responsive Design</i> </li>
-              <li><i class="glyphicon glyphicon-ok"> Minimal Custom Css</i> </li>
-              <li><i class="glyphicon glyphicon-ok"> Open Source</i> </li>
-              <li><i class="glyphicon glyphicon-ok"> fully customized</i> </li>
-            </ul>
-
-          </div>
-
-          <div class="col-md-6">
-            <img src="img/macbook.png" class="img-responsive">
-
-          </div>
+          {{ page.section_four }}
           </div>
         </div>
     </section>
@@ -124,23 +110,7 @@
     <section class="region-section-five section-front">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <img src="img/sample1.jpg" class="img-circle img-responsive">
-
-
-          </div>
-
-          <div class="col-md-6">
-            <h2>More Features</h2>
-            <ul class="feature-list">
-              <li><i class="glyphicon glyphicon-ok"> Bootstrap 3 Framework</i> </li>
-              <li><i class="glyphicon glyphicon-ok"> Mobile Responsive Design</i> </li>
-              <li><i class="glyphicon glyphicon-ok"> Minimal Custom Css</i> </li>
-              <li><i class="glyphicon glyphicon-ok"> Open Source</i> </li>
-              <li><i class="glyphicon glyphicon-ok"> fully customized</i> </li>
-            </ul>
-
-          </div>
+          {{ page.section_five }}
         </div>
       </div>
     </section>

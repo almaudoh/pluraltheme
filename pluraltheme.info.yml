@@ -26,3 +26,7 @@ regions:
   footer_top_second: 'Footer top second'
   footer_bottom: 'Footer bottom'
   section_one: 'Section One (Front page)'
+  section_two: 'Section Two (Front page)'
+  section_three: 'Section Three (Front page)'
+  section_four: 'Section Four (Front page)'
+  section_five: 'Section Five (Front page)'
