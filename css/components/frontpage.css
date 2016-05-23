@@ -160,13 +160,17 @@
 .fa-color {
   color: #0678be;
 }
+.region-section-one{
+
+}
 .region-section-one h1{
+  color: #ffffff;
   text-align: center;
 }
-.region-section-three{
+.region-section-three {
   background: #e44d26;
   color: #fff;
-  padding: 60px 0;
+  padding: 40px 0;
 }
 .slogan{
   text-align: center;
@@ -186,8 +190,38 @@
   font-size: 18px;
   line-height: 2em;
 }
-.region-section-five{
+.region-section-four{
   background: #0383c0;
   color: #fff;
-  padding: 60px 0;
+  padding: 50px ;
+}
+.region-section-five{
+  background: #f4f4f4;
+  color: #000000;
+  padding: 50px;
+}
+.jumbotron{
+  background-image: url("../../images/bootstrap/jumbo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.jumbotron p{
+  text-align: center;
+  color: #ffffff;
+  font-size: 26px!important;
+  font-weight: bold;
+}
+.jumbotron h1{
+  color: #ffffff !important;
+  font-weight: bolder;
+}
+
+.navbar-fixed-top {
+  top: inherit;
+  border-width: 0 0 1px;
+}
+.btn{
+  height:45px;
+  font-size: 20px!important;
 }

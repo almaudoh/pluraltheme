@@ -1,6 +1,6 @@
 name: 'Plural Theme'
 type: theme
-base theme: classy
+base theme: bootstrap
 description: 'A responsive theme for PluralSMS website based on Zurb Foundation Framework with D8.'
 version: VERSION
 core: 8.x
@@ -11,14 +11,9 @@ libraries-extend:
     - pluraltheme/summary-display
 regions:
   header: 'Header'
-  navigation: Navigation
+  logo: 'Logo'
+  navigation: 'Navigation'
   help: 'Help'
-  banner: Banner
-  intro_text: 'Introduction Text'
-  featured_top_first: 'Featured top first'
-  featured_top_second: 'Featured top second'
-  featured_top_third: 'Featured top third'
-  content_banner: 'Node Banner'
   content: 'Main content'
   sidebar_first: 'First sidebar'
   sidebar_second: 'Second sidebar'

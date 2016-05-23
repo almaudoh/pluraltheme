@@ -328,25 +328,48 @@ function pluraltheme_preprocess_page(&$variables) {
 
   // Dynamic sidebars
   if (!empty($left) && !empty($right)) {
+    // foundation:
     $variables['main_grid'] = 'large-6 large-push-3';
     $variables['sidebar_first_grid'] = 'large-3 large-pull-6';
     $variables['sidebar_sec_grid'] = 'large-3';
+
+    // bootstrap:
+    $variables['main_grid'] = 'col-md-6 col-md-push-3';
+    $variables['sidebar_first_grid'] = 'col-md-3 col-md-pull-6';
+    $variables['sidebar_sec_grid'] = 'col-md-3';
   }
   elseif (empty($left) && !empty($right)) {
     $variables['main_grid'] = 'large-9';
     $variables['sidebar_first_grid'] = '';
     $variables['sidebar_sec_grid'] = 'large-3';
+
+    //bootstrap
+    $variables['main_grid'] = 'col-md-9';
+    $variables['sidebar_first_grid'] = '';
+    $variables['sidebar_sec_grid'] = 'col-md-3';
   }
   elseif (!empty($left) && empty($right)) {
     $variables['main_grid'] = 'large-9 large-push-3';
     $variables['sidebar_first_grid'] = 'large-3 large-pull-9';
+    $variables['sidebar_sec_grid'] = '';
+
+    //bootstrap
+    $variables['main_grid'] = 'col-md-9 col-md-push-3';
+    $variables['sidebar_first_grid'] = 'col-md-3 col-md-pull-9';
     $variables['sidebar_sec_grid'] = '';
   }
   else {
     $variables['main_grid'] = 'large-12';
     $variables['sidebar_first_grid'] = '';
     $variables['sidebar_sec_grid'] = '';
+
+    //bootstrap
+    $variables['main_grid'] = 'col-md-12';
+    $variables['sidebar_first_grid'] = '';
+    $variables['sidebar_sec_grid'] = '';
+
   }
+
 
   // Add classes to highlighted region.
   if (!empty($variables['page']['highlighted'])) {

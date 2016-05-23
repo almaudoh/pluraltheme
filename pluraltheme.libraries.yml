@@ -2,9 +2,10 @@ global-styling:
   version: VERSION
   css:
     base:
-      css/foundation/foundation.min.css: {}
+      css/bootstrap/bootstrap.css: {}
+#      css/foundation/foundation.min.css: {}
     components:
-      css/foundation/normalize.css: {}
+#      css/foundation/normalize.css: { }
       css/layouts/layout.css: { }
       css/components/base.css: { }
       css/components/block.css: { }
@@ -38,10 +39,6 @@ user-login:
     component:
       css/layouts/user-login.css: { }
 
-bootstrap:
-  css:
-    theme:
-      css/bootstrap/bootstrap.css: { }
 
 font-awesome:
   css:
