@@ -6,8 +6,10 @@
     {% if page.navigation %}
         <div class="container">
             <div class="row">
-                <div class="large-12 columns">
-                    {{ page.navigation }}
+                <div class="large-12 columns col-md-12">
+                    <div class="pull-right">
+                        {{ page.navigation }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,6 +64,8 @@
             </div>
         </div>
     </div>
+    </section>
+
 
     <section class="region-section-three section-three">
         <div class="container">
@@ -71,7 +75,7 @@
         </div>
     </section>
 
-
+        {#features of plural sms#}
     <section class="region-section-four section-front">
         <div class="container">
             <div class="row">
@@ -80,10 +84,55 @@
         </div>
     </section>
 
-    <section class="region-section-five section-front">
+
+
+    <section>
         <div class="container">
             <div class="row">
-                {{ page.section_five }}
+                <div class="col-md-4">
+                    <section class="region-section-six section-front">
+                    {{ page.section_six }}
+                    </section>
+                </div>
+
+                <div class="col-md-4">
+                    <section class="region-section-five section-front">
+                    {{ page.section_five }}
+                    </section>
+                </div>
+
+                <div class="col-md-4">
+                    <section class="region-section-seven section-front">
+                    {{ page.section_seven }}
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        {#&#123;&#35;payment section&#35;&#125;#}
+    {#<section class="region-section-six section-front">#}
+        {#<div class="container">#}
+            {#<div class="row">#}
+                {#{{ page.section_six }}#}
+            {#</div>#}
+        {#</div>#}
+    {#</section>#}
+
+    {#&#123;&#35;price section&#35;&#125;#}
+    {#<section class="region-section-five section-front">#}
+        {#<div class="container">#}
+            {#<div class="row">#}
+                {#{{ page.section_five }}#}
+            {#</div>#}
+        {#</div>#}
+    {#</section>#}
+
+        {#contact details#}
+
+        <div class="container">
+            <div class="row row-centered">
+                {{ page.section_eight }}
             </div>
         </div>
     </section>

@@ -40,11 +40,11 @@
       </div>
     </header>
 
-    <div class="main-menu">
+    <div class="main-menu row">
       {% if page.navigation %}
-        <div class="row">
-          <div class="large-12 columns col-md-12">
-            {{ page.navigation }}
+        <div class="large-12 columns col-md-12">
+          <div class="pull-right">
+          {{ page.navigation }}
           </div>
         </div>
       {% endif %}
@@ -58,102 +58,38 @@
       </div>
     {% endif %}
 
-    {% if is_front %}
+    {% if page.content_banner %}
+      <div class="content-banner row">
+        <div class="large-12 columns col-md-12">
+          {{ page.content_banner }}
+        </div>
+      </div>
+    {% endif %}
 
-      {% if page.banner %}
-        <div class="banner">
-          <div class="large-12 columns col-md-12">
-            {{ page.banner }}
-          </div>
+    <div class="row main-content">
+      <div id="main" class="{{ main_grid }} columns">
+        <a id="main-content" tabindex="-1"></a>
+        {% if breadcrumb %} {{ breadcrumb }} {% endif %}
+        {% if title and not is_front %}
+          {{ title_prefix }}
+          <h1 id="page-title" class="title">{{ title }}</h1>
+          {{ title_suffix }}
+        {% endif %}
+        {{ page.content }}
+      </div>
+      {% if page.sidebar_first %}
+        <div id="sidebar-first"
+             class="{{ sidebar_first_grid }} columns sidebar ">
+          {{ page.sidebar_first }}
         </div>
       {% endif %}
-
-      <div class="intro_text">
-        {% if page.intro_text %}
-          <div class="row">
-            <div class="large-12 columns col-md-12">
-              {{ page.intro_text }}
-            </div>
-          </div>
-        {% endif %}
-      </div>
-
-      {% if page.featured_top_first or page.featured_top_second or page.feature_last %}
-        <div class="featured_top">
-          <div class="row">
-            {% if page.featured_top_first %}
-              <div id="featured_top_first" class="large-4 columns col-md-4">
-                {{ page.featured_top_first }}
-              </div>
-            {% endif %}
-            {% if page.featured_top_second %}
-              <div id="featured_top_second" class="large-4 columns col-md-4">
-                {{ page.featured_top_second }}
-              </div>
-            {% endif %}
-            {% if page.featured_top_third %}
-              <div id="featured_top_third" class="large-4 columns col-md-4">
-                {{ page.featured_top_third }}
-              </div>
-            {% endif %}
-          </div>
-        </div>
-      {% endif %}{# if page.featured_top_first or page.featured_top_second or page.feature_last #}
-
-      {% if page.footer_top_first or page.footer_top_second %}
-        <div class="footer-top">
-          <div class="row">
-            {% if page.footer_top_first %}
-              <div id="footer_top_first" class="large-6 columns col-md-6">
-                {{ page.footer_top_first }}
-              </div>
-            {% endif %}
-            {% if page.footer_top_second %}
-              <div id="footer_top_second" class="large-6 columns col-md-6">
-                {{ page.footer_top_second }}
-              </div>
-            {% endif %}
-          </div>
-        </div>
-      {% endif %}{# if page.footer_top_first or page.footer_top_second #}
-
-    {% else %}{# is_front #}
-
-      {% if page.content_banner %}
-        <div class="content-banner">
-          <div class="large-12 columns">
-            {{ page.content_banner }}
-          </div>
+      {% if page.sidebar_second %}
+        <div id="sidebar-second"
+             class="{{ sidebar_sec_grid }} columns sidebar">
+          {{ page.sidebar_second }}
         </div>
       {% endif %}
-
-      <div class="row main-content">
-        <div id="main" class="{{ main_grid }} columns">
-          <a id="main-content" tabindex="-1"></a>
-          {% if breadcrumb %} {{ breadcrumb }} {% endif %}
-          {% if title and not is_front %}
-            {{ title_prefix }}
-            <h1 id="page-title" class="title">{{ title }}</h1>
-            {{ title_suffix }}
-          {% endif %}
-          {{ page.content }}
-        </div>
-        {% if page.sidebar_first %}
-          <div id="sidebar-first"
-               class="{{ sidebar_first_grid }} columns sidebar ">
-            {{ page.sidebar_first }}
-          </div>
-        {% endif %}
-        {% if page.sidebar_second %}
-          <div id="sidebar-second"
-               class="{{ sidebar_sec_grid }} columns sidebar">
-            {{ page.sidebar_second }}
-          </div>
-        {% endif %}
-      </div>
-
-    {% endif %}{# is_front #}
-
+    </div>
 
     <footer class="layout-footer-bottom row">
       {{ page.footer_bottom }}

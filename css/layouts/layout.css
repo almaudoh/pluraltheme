@@ -49,3 +49,28 @@ body {
   overflow: hidden;
   clear: both;
 }
+
+
+
+
+/*SMS Ui Overrides*/
+
+.main-content{
+  background-color: #fafafc;
+}
+
+#recipients_container{
+  margin-bottom: 15px;
+}
+
+#message_container{
+  margin-bottom: 15px;
+}
+
+.multicolumn-form .right-pane > div{
+  margin-top: -12px;
+}
+
+.multicolumn-form{
+  border: none;
+}

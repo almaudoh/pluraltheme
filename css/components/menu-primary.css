@@ -335,6 +335,7 @@ ul.sf-menu li.sf-multicolumn-wrapper span.nolink.menuparent {
     background-color: transparent;
     height: 50px;
     width: auto;
+    margin-bottom: 10px;
 }
 
 .user-details /** typography */ {
@@ -411,21 +412,26 @@ a#superfish-main-toggle {
     padding-top: 5px;
     padding-bottom: 5px;
 }
-.navbar-nav >li >a{
-    padding: 0px;
-    font-size: 18px;
-    font-weight: bold;
-    border-right: 1px solid #ccc;
+.navbar-nav > li > a{
+    padding: 5px;
+    /*font-size: 18px;*/
+    /*font-weight: bold;*/
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     /*min-height: 90px;*/
-    background: #0383c0 !important;
+    /*background: #0383c0 !important;*/
     color: #ffffff !important;
-    vertical-align: middle !important;
+    /*vertical-align: middle !important;*/
+}
+
+.navbar-nav > li + li > a {
+    border-left: 1px solid #ccc;
 }
 
 .navbar-nav a:hover, .navbar-inverse, .navbar-nav > .active > a, .navbar-inverse, .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-    background: #0383c0 !important;
+    /*background: #0383c0 !important;*/
     color:#fff !important;
+    background:#1A659B !important;
+    text-decoration: underline !important;
 }
 
