@@ -86,56 +86,36 @@
 
 
 
-    <section>
-        <div class="container">
+        <section class ="price-section section-front">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
-                    <section class="region-section-six section-front">
-                    {{ page.section_six }}
-                    </section>
-                </div>
-
-                <div class="col-md-4">
-                    <section class="region-section-five section-front">
+                <div class="col-md-4 three-piece">
+                        {#payment channels section#}
                     {{ page.section_five }}
-                    </section>
                 </div>
 
-                <div class="col-md-4">
-                    <section class="region-section-seven section-front">
+                <div class="col-md-4 three-piece">
+                        {#price section#}
+                    {{ page.section_six }}
+                </div>
+
+                <div class="col-md-4 three-piece">
+                        {#bank details section#}
                     {{ page.section_seven }}
-                    </section>
                 </div>
             </div>
         </div>
-    </section>
+        </section>
 
-        {#&#123;&#35;payment section&#35;&#125;#}
-    {#<section class="region-section-six section-front">#}
-        {#<div class="container">#}
-            {#<div class="row">#}
-                {#{{ page.section_six }}#}
-            {#</div>#}
-        {#</div>#}
-    {#</section>#}
 
-    {#&#123;&#35;price section&#35;&#125;#}
-    {#<section class="region-section-five section-front">#}
-        {#<div class="container">#}
-            {#<div class="row">#}
-                {#{{ page.section_five }}#}
-            {#</div>#}
-        {#</div>#}
-    {#</section>#}
-
-        {#contact details#}
-
-        <div class="container">
-            <div class="row row-centered">
+        <div class="container-fluid">
+            <div class="row">
+                <section class="region-section-eight">
                 {{ page.section_eight }}
+                </section>
             </div>
         </div>
-    </section>
+
 
     <div style="text-align: center; padding: 5px;">
         <a href="http://www.greenlandtechnology.com/"> A GreenLand Technologies SMS Company </a>
