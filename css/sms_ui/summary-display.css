@@ -6,7 +6,8 @@
   background: #fff;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
-  border-radius: 2px; 
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
 }
 
 .summary-block .title {

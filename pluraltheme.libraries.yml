@@ -2,7 +2,8 @@ global-styling:
   version: VERSION
   css:
     base:
-      css/bootstrap/bootstrap.css: {}
+      css/bootstrap/bootstrap.css: { }
+      css/bootstrap/pluraltheme-overrides.css: { }
 #      css/foundation/foundation.min.css: {}
     components:
 #      css/foundation/normalize.css: { }
@@ -21,6 +22,7 @@ global-styling:
       css/components/page-title.css: { }
       css/components/tables.css: { }
       css/components/typography.css: { }
+      css/sms_ui/pluraltheme-overrides.css: { }
 
 frontpage:
   css:

@@ -39,7 +39,7 @@ body {
 .intro_text {
 	/*background: url(../images/friends.jpg);*/
 	min-height: 300px;
-	background: #E9F4FB none repeat scroll 0% 0%;
+	background: #FDFDFF none repeat scroll 0% 0%;
 }
 
 #footer {
@@ -48,29 +48,4 @@ body {
   padding: 25px 0 10px 0;
   overflow: hidden;
   clear: both;
-}
-
-
-
-
-/*SMS Ui Overrides*/
-
-.main-content{
-  background-color: #fafafc;
-}
-
-#recipients_container{
-  margin-bottom: 15px;
-}
-
-#message_container{
-  margin-bottom: 15px;
-}
-
-.multicolumn-form .right-pane > div{
-  margin-top: -12px;
-}
-
-.multicolumn-form{
-  border: none;
 }
