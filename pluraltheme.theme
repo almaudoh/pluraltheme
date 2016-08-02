@@ -312,9 +312,9 @@ function pluraltheme_preprocess_page(&$variables) {
   // Remove blocks that are not main content from the 'user/login' page.
   if (\Drupal::routeMatch()->getRouteName() === 'user.login') {
     foreach ($variables['page']['content'] as $key => $value) {
-      // @todo: Use of 'pluraltheme_content' here is fragile. Need more robust
+      // @todo: Use of '_content' here is fragile. Need more robust
       // method to distinguish.
-      if ($key[0] != '#' && strpos($key, 'pluraltheme_content') === FALSE) {
+      if ($key[0] != '#' && strpos($key, '_content') === FALSE) {
         unset($variables['page']['content'][$key]);
       }
     }
@@ -339,6 +339,7 @@ function pluraltheme_preprocess_page(&$variables) {
     $variables['sidebar_sec_grid'] = 'col-md-3';
   }
   elseif (empty($left) && !empty($right)) {
+    // foundation:
     $variables['main_grid'] = 'large-9';
     $variables['sidebar_first_grid'] = '';
     $variables['sidebar_sec_grid'] = 'large-3';
@@ -349,6 +350,7 @@ function pluraltheme_preprocess_page(&$variables) {
     $variables['sidebar_sec_grid'] = 'col-md-3';
   }
   elseif (!empty($left) && empty($right)) {
+    // foundation:
     $variables['main_grid'] = 'large-9 large-push-3';
     $variables['sidebar_first_grid'] = 'large-3 large-pull-9';
     $variables['sidebar_sec_grid'] = '';
@@ -359,6 +361,7 @@ function pluraltheme_preprocess_page(&$variables) {
     $variables['sidebar_sec_grid'] = '';
   }
   else {
+    // foundation:
     $variables['main_grid'] = 'large-12';
     $variables['sidebar_first_grid'] = '';
     $variables['sidebar_sec_grid'] = '';
@@ -369,7 +372,6 @@ function pluraltheme_preprocess_page(&$variables) {
     $variables['sidebar_sec_grid'] = '';
 
   }
-
 
   // Add classes to highlighted region.
   if (!empty($variables['page']['highlighted'])) {
