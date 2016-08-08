@@ -10,8 +10,7 @@ libraries-extend:
   sms_ui/summary-display:
     - pluraltheme/summary-display
 regions:
-  header: 'Header'
-  logo: 'Logo'
+  site_brand: 'Site Brand'
   navigation: 'Navigation'
   help: 'Help'
   content: 'Main content'
@@ -28,3 +27,5 @@ regions:
   section_six: 'Section Six (front page)'
   section_seven: 'section seven (front page)'
   section_eight: 'section eight (front page contact)'
+  adblock_1: 'Large Advert Block'
+  adblock_2: 'Small Advert Block'

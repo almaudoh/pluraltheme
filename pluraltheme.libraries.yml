@@ -23,6 +23,7 @@ global-styling:
       css/components/tables.css: { }
       css/components/typography.css: { }
       css/sms_ui/pluraltheme-overrides.css: { }
+      css/components/style.css: { }
 
 frontpage:
   css:

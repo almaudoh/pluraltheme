@@ -1,3 +1,4 @@
+/*
 body {
   padding-top: 90px;
 }
@@ -17,7 +18,7 @@ section{
   background: #e44d26;
   color: #fff;
   padding: 60px 0;
-}
+}*/
 .slogan{
   text-align: center;
 }
@@ -97,4 +98,7 @@ footer{
   height: 60px;
   background: #f4f4f4;
   padding-top: 20px;
+}
+body.path-user {
+  background: url("../../images/login-bg.jpg") repeat-y;
 }

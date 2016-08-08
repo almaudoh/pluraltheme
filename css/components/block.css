@@ -40,3 +40,13 @@
 #block-pluraltheme-content.block {
   margin: 10px 0;
 }
+
+/** Ad Blocks on login page *//*
+.adblock2 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}*/
+
+.adblock2 > div {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+}

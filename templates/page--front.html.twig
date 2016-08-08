@@ -1,117 +1,135 @@
 {{ attach_library('pluraltheme/font-awesome') }}
 {{ attach_library('pluraltheme/frontpage') }}
 
-<div class="main-menu">
-    {% if page.navigation %}
-    <div class="container">
-        <div class="row">
-            <div class="large-12 columns col-md-12">
-                <div class="pull-right">
-                    {{ page.navigation }}
-                </div>
+<header class="site-header">
+  {% if page.site_brand or page.navigation %}
+    <div class="header">
+      <div class="container">
+        <div class="row ">
+
+          {% if page.site_brand %}
+            <div class="col-md-4">
+              {{ page.site_brand }}
             </div>
+          {% endif %}
+
+          {% if page.navigation %}
+            <div class="main-menu">
+              <div class="col-md-8">
+                <div class="pull-right">
+                  {{ page.navigation }}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
         </div>
+      </div>
     </div>
-    {% endif %}
-</div>
+  {% endif %}
+</header>
 
 <section class="region-section-one section-front">
-<div class="jumbotron ">
+  <div class="jumbotron ">
     <div class="container">
-        <div class="row ">
-            <div class="col-md-12">
-                {{ page.section_one }}
-            </div>
+      <div class="row ">
+        <div class="col-md-12">
+          {{ page.section_one }}
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </section>
 
 <section class="region-section-two section-front">
-<div class="container">
+  <div class="container">
     <div class="row">
-        <div class="col-md-3 col-sm-3 text-center">
+      <div class="col-md-3 col-sm-3 text-center">
         <span class="fa-stack fa-lg fa-4x">
             <i class="fa fa-circle fa-stack-2x fa-color"></i>
             <i class="fa fa-plane fa-stack-1x fa-inverse"></i>
         </span>
-            <h3>Instant SMS Delivery</h3>
-        </div>
 
-        <div class="col-md-3 col-sm-3 text-center">
+        <h3>Instant SMS Delivery</h3>
+      </div>
+
+      <div class="col-md-3 col-sm-3 text-center">
         <span class="fa-stack fa-lg fa-4x">
             <i class="fa fa-circle fa-stack-2x fa-color"></i>
             <i class="fa fa-microphone fa-stack-1x fa-inverse"></i>
         </span>
-            <h3>VoIP Voice to Speech</h3>
-        </div>
 
-        <div class="col-md-3 col-sm-3 text-center">
+        <h3>VoIP Voice to Speech</h3>
+      </div>
+
+      <div class="col-md-3 col-sm-3 text-center">
         <span class="fa-stack fa-lg fa-4x">
             <i class="fa fa-circle fa-stack-2x fa-color"></i>
             <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
         </span>
-            <h3>Online Payment</h3>
-        </div>
 
-        <div class="col-md-3 col-sm-3 text-center">
+        <h3>Online Payment</h3>
+      </div>
+
+      <div class="col-md-3 col-sm-3 text-center">
         <span class="fa-stack fa-lg fa-4x">
             <i class="fa fa-circle fa-stack-2x fa-color"></i>
             <i class="fa fa-users fa-stack-1x fa-inverse"></i>
         </span>
-            <h3>24/7 Customer care</h3>
-        </div>
+
+        <h3>24/7 Customer care</h3>
+      </div>
     </div>
-</div>
+  </div>
 </section>
 
 <section class="region-section-three section-three">
-<div class="container">
+  <div class="container">
     <div class="row">
-        {{ page.section_three }}
+      {{ page.section_three }}
     </div>
-</div>
+  </div>
 </section>
 
 <section class="region-section-four section-front">
-<div class="container">
+  <div class="container">
     <div class="row">
-        {# Features of PluralSMS #}
-        {{ page.section_four }}
+      {# Features of PluralSMS #}
+      {{ page.section_four }}
     </div>
-</div>
+  </div>
 </section>
 
-<section class ="price-section section-front">
-<div class="container-fluid">
+<section class="price-section section-front">
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4 three-piece">
-            {# Payment channels section #}
-            {{ page.section_five }}
-        </div>
+      <div class="col-md-4 three-piece">
+        {# Payment channels section #}
+        {{ page.section_five }}
+      </div>
 
-        <div class="col-md-4 three-piece">
-            {# Price section #}
-            {{ page.section_six }}
-        </div>
+      <div class="col-md-4 three-piece">
+        {# Price section #}
+        {{ page.section_six }}
+      </div>
 
-        <div class="col-md-4 three-piece">
-            {# Bank details section #}
-            {{ page.section_seven }}
-        </div>
+      <div class="col-md-4 three-piece">
+        {# Bank details section #}
+        {{ page.section_seven }}
+      </div>
     </div>
-</div>
+  </div>
 </section>
 
 <section class="region-section-eight section-front">
-<div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
-        {# Footer section #}
-        {{ page.section_eight }}
+      {# Footer section #}
+      {{ page.section_eight }}
     </div>
-</div>
+  </div>
 </section>
 
 <div style="text-align: center; padding: 5px;">
-    <a href="http://www.greenlandtechnology.com/"> A GreenLand Technologies SMS Company </a>
+  <a href="http://www.greenlandtechnology.com/"> A GreenLand Technologies SMS Company </a>
 </div>

@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+
 /**
  * Load template files
  */
@@ -15,18 +18,34 @@ function pluraltheme_theme() {
 /**
  * Implements hook_form_alter().
  *
- * Alters the login form to use placeholder attributes and hides the titles.
+ * Alters the login, register and password forms to use placeholder attributes
+ * and hides the titles.
  */
-function pluraltheme_form_user_login_form_alter(&$form, $form_state) {
-  // Hide the username textfield label and use a placeholder instead.
-  $form['name']['#title_display'] = 'invisible';
-  $form['name']['#placeholder'] = $form['name']['#description'];
-  unset($form['name']['#description']);
+function pluraltheme_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'user_login_form') {
+    // Hide the username textfield label and use a placeholder instead.
+    $form['name']['#title_display'] = 'invisible';
+    $form['name']['#placeholder'] = t('Username');
+    unset($form['name']['#description']);
 
-  // Hide the password textfield label and use a placeholder instead.
-  $form['pass']['#title_display'] = 'invisible';
-  $form['pass']['#placeholder'] = t('Enter your password');
-  unset($form['pass']['#description']);
+    // Hide the password textfield label and use a placeholder instead.
+    $form['pass']['#title_display'] = 'invisible';
+    $form['pass']['#placeholder'] = t('Password');
+    unset($form['pass']['#description']);
+  }
+  else if ($form_id == 'user_register_form') {
+    foreach (Element::children($form['account']) as $element) {
+      // Hide all the titles of elements in this register form.
+      $form['account'][$element]['#title_display'] = 'invisible';
+      $form['account'][$element]['#placeholder'] = $form['account'][$element]['#title'];
+//    unset($form['account'][$element]['#description']);
+    }
+  }
+  else if ($form_id == 'user_pass') {
+    // Hide the username textfield label and use a placeholder instead.
+    $form['name']['#title_display'] = 'invisible';
+    $form['name']['#placeholder'] = t('Username or email address');
+  }
 }
 
 /**
@@ -315,7 +334,7 @@ function pluraltheme_preprocess_page(&$variables) {
       // @todo: Use of '_content' here is fragile. Need more robust
       // method to distinguish.
       if ($key[0] != '#' && strpos($key, '_content') === FALSE) {
-        unset($variables['page']['content'][$key]);
+        //unset($variables['page']['content'][$key]);
       }
     }
     // Also remove sidebar regions.
