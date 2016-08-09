@@ -42,12 +42,16 @@ set body_classes = [
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
   <body{{ attributes.addClass(body_classes) }}>
-  <a href="#main-content" class="visually-hidden focusable skip-link">
-    {{ 'Skip to main content'|t }}
-  </a>
-  {{ page_top }}
-  {{ page }}
-  {{ page_bottom }}
-  <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+    <a href="#main-content" class="visually-hidden focusable skip-link">
+      {{ 'Skip to main content'|t }}
+    </a>
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+    {# Credit footnotes #}
+    <div style="text-align: center; padding: 5px;">
+      <a href="http://www.kodehauz.com/"> Designed by KodeHauz </a>
+    </div>
   </body>
 </html>
