@@ -100,5 +100,7 @@ footer{
   padding-top: 20px;
 }
 body.path-user {
-  background: url("../../images/login-bg.png") repeat-y;
+  background-image: url("../../images/login-bg.png");
+  background-repeat: repeat-y;
+  background-size: cover;
 }
