@@ -4,9 +4,7 @@ global-styling:
     base:
       css/bootstrap/bootstrap.css: { }
       css/bootstrap/pluraltheme-overrides.css: { }
-#      css/foundation/foundation.min.css: {}
     component:
-#      css/foundation/normalize.css: { }
       css/layouts/layout.css: { }
       css/components/base.css: { }
       css/components/block.css: { }
