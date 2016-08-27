@@ -2,120 +2,108 @@
 {{ attach_library('pluraltheme/frontpage') }}
 
 <header id="idz-header">
-    <div id="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 top-header-left">
-                    <div id="top-phone">Call Us +234 1 4407333</div>
-                    <div id="top-social">
-                        <ul class="social-icon">
-                            <li><a href="http://www.facebook.com/pluralhost" title="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="http://twitter.com/pluralhost" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="skype:Plural.Support?call" title="Plural.Support" class="skype-bgcolor" target="_blank"><i class="fa fa-skype"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- phone and social end -->
-                </div>
-                <div class="col-sm-6 top-header-right hidden-xs">
-                    <!-- chat and account button begin -->
-                    <div id="top-button">
-                        <ul>
-                            <li><a href="http://178.62.27.215:3000/livechat"><i class="fa fa-comments-o" aria-hidden="true"></i>Live Chat</a></li>
-                        </ul>
-                        <div class="top-header-right">
-                            <ul></ul>
-                        </div>
-                    </div>
-                    <!-- chat and account button end -->
-                </div>
-            </div>
+  <div id="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 top-header-left">
+          <div id="top-phone">Call Us +234 1 4407333</div>
+          <!-- phone and social -->
+          <div id="top-social">
+            <ul class="social-icon">
+              <li><a href="http://www.facebook.com/pluralsms" title="Facebook" target="_blank">
+                  <i class="fa fa-facebook"></i></a>
+              </li>
+              <li><a href="http://twitter.com/pluralsms" title="Twitter" target="_blank">
+                  <i class="fa fa-twitter"></i></a>
+              </li>
+              <li><a href="skype:Plural.Support?call" title="Plural Support" class="skype-bgcolor" target="_blank">
+                  <i class="fa fa-skype"></i></a>
+              </li>
+            </ul>
+          </div>
+          <!-- phone and social end -->
         </div>
-    </div>
-    
-	<div class="main-header">
-                <div class="container">
-                  <nav class="navbar" role="navigation">
-
-                      <div class="navbar-header">
-                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                              <span class="sr-only">Toggle navigation</span>
-                              <span class="fa fa-th fa-2x"></span>
-                          </button>
-
-                        {% if page.site_brand %}
-                         <div class="navbar-brand">
-                           {{ page.site_brand }}
-                         </div>
-                        {% endif %}
-                      </div>
-						 
-                        <!-- Navigation -->
-                         {% if page.navigation %}
-                             {{ page.navigation }}
-                         {% endif %}
-                        <!--End Navigation -->
-                  </nav>
-                </div>
+        <div class="col-sm-6 top-header-right hidden-xs">
+          <!-- chat and account button begin -->
+          <div id="top-button">
+            <ul>
+              <li><a href="http://178.62.27.215:3000/livechat">
+                  <i class="fa fa-comments-o" aria-hidden="true"></i>Live Chat</a>
+              </li>
+            </ul>
+            <div class="top-header-right">
+              <ul></ul>
             </div>
-			
+          </div>
+          <!-- chat and account button end -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-header">
+    <div class="container">
+      <nav class="navbar" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-th fa-2x"></span>
+          </button>
+
+          {% if page.site_brand %}
+            <div class="navbar-brand">
+              {{ page.site_brand }}
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Navigation -->
+        {% if page.navigation %}
+          {{ page.navigation }}
+        {% endif %}
+        <!--End Navigation -->
+      </nav>
+    </div>
+  </div>
+
 </header>
 
 <section class="section-front">
   <div class="banner">
     <div class="container">
-      <div class="row">
-	    <div class="banner-content">
-			<div class="banner-region">
-				<div class="cover-intro">
-		
-		{% if logged_in %}
-				<div class="col-sm-12">
-				    <div class="cover-wrap text-center">
-						<h1 role="heading" aria-level="1" class="fsizeh1">Bulk SMS Amplified</h1>
+      {#<div class="row">#}
+        <div class="banner-region">
+          <div class="cover-intro row">
+            {%
+              set top_class = page.section_one ? 'col-md-9 col-sm-8 col-xs-12' : 'col-sm-12'
+            %}
+            <div class="{{ top_class }} cover-wrap text-center">
+              <h1 role="heading" aria-level="1" class="fsizeh1">Bulk SMS Amplified</h1>
 
-						<p class="fsizeh3 clearfix">Send SMS to All Nigerian Networks and Worldwide!<br />
-						We provide you with a platform with advanced features, short code, mobile originated sms etc.</p>
-						
-						<div class="call-to-action">
-							<span class="sfwBtnWrapper">
-							  <span> <a href="#" class="btn secondaryCta user-button bg">{{ 'Explore'|t }}</a></span> 
-							</span>
-					    </div>
-					</div>
-				</div>
-				 
-		{% else %}
-		
-				<div class="col-md-8 col-sm-8 col-xs-12">
-				  <div class="cover-wrap text-center">
-					<h1 role="heading" aria-level="1" class="fsizeh1">Bulk SMS Amplified</h1>
+              <p class="fsizeh3 clearfix">
+                Send SMS to All Nigerian Networks and Worldwide!<br/>
+                We provide you a platform with advanced features,
+                short code, mobile-originated SMS etc.
+              </p>
+              <div class="call-to-action">
+                <span class="sfwBtnWrapper">
+                {% if logged_in %}
+                  <span><a href="{{ path('sms_ui.send_bulk') }}" class="btn primary-cta user-button bg">{{ 'Send SMS'|t }}</a></span>
+                {% else %}
+                  <span><a href="{{ path('user.register') }}" class="btn primary-cta user-button bg">{{ 'Sign Up Free'|t }}</a></span>
+                {% endif %}
+                </span>
+              </div>
+            </div>
 
-					<p class="fsizeh3 clearfix">Send SMS to All Nigerian Networks and Worldwide!<br />
-					We provide you with a platform with advanced features, short code, mobile originated sms etc.</p>
-					
-					<div class="call-to-action">
-						<span class="sfwBtnWrapper">
-						{% if logged_in %}
-						  <span> <a href="#" class="btn secondaryCta user-button bg">{{ 'Send SMS'|t }}</a></span> 
-						  {% else %}
-						  <span><a href="{{ path('user.register') }}"
-							 class="btn secondaryCta user-button bg">{{ 'Sign Up Free'|t }}</a></span>
-						  {% endif %}
-						</span>
-					</div>
-				  </div>
-				</div>
-				
-			    <div class="col-md-4 col-sm-4 col-xs-12">
-			      {{ page.section_one }}
-			    </div>
-
-		{% endif %}
-		
-			    </div>
-			</div>
+            {% if page.section_one %}
+            <div class="col-md-3 col-sm-4 col-xs-12 cover-wrap">
+              {{ page.section_one }}
+            </div>
+            {% endif %}
+          </div>
         </div>
-      </div>
+      {#</div>#}
     </div>
   </div>
 </section>
@@ -177,59 +165,59 @@
 
 
 {% if page.home_feat1 or page.home_feat2 or page.home_feat3 %}
-    <section class="home-highlights">
-		<div class="container">
-		 <div class="row">
-		  {% if page.home_feat1 %}
-			<div class="home-feat-1 col-sm-4">{{ page.home_feat1 }}</div>
-		  {% endif %}
-		  {% if page.home_feat2 %}
-			<div class="home-feat-2 col-sm-4">{{ page.home_feat2 }}</div>
-		  {% endif %}
-		  {% if page.home_feat3 %}
-			<div class="home-feat-2 col-sm-4">{{ page.home_feat3 }}</div>
-		  {% endif %}
-		 </div>
-		</div>
-    </section>
-  {% endif %}
+  <section class="home-highlights">
+    <div class="container">
+      <div class="row">
+        {% if page.home_feat1 %}
+          <div class="home-feat-1 col-sm-4">{{ page.home_feat1 }}</div>
+        {% endif %}
+        {% if page.home_feat2 %}
+          <div class="home-feat-2 col-sm-4">{{ page.home_feat2 }}</div>
+        {% endif %}
+        {% if page.home_feat3 %}
+          <div class="home-feat-2 col-sm-4">{{ page.home_feat3 }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}
 
 	
 	{% if page.panel_left %}
-		<div class="image-edge">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-12">
-					  <div class="panel-left">{{ page.panel_left }}</div>
-					</div>
-				</div>
-			</div>
-			<div class="edge-bg" style=""></div>
-		</div>
-	{% endif %}
+    <div class="image-edge">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="panel-left">{{ page.panel_left }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="edge-bg" style=""></div>
+    </div>
+  {% endif %}
 			
 
 {% if page.section_three %}
-<section class="region-section-three section-three">
-  <div class="container">
-    <div class="row">
-     <div class="col-sm-12">
-      {{ page.section_three }}
-     </div>
+  <section class="region-section-three section-three">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          {{ page.section_three }}
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 {% endif %}
 
 {% if page.section_four %}
-<section class="region-section-four section-front">
-  <div class="container">
-    <div class="row">
-      {# Features of PluralSMS #}
-      {{ page.section_four }}
+  <section class="region-section-four section-front">
+    <div class="container">
+      <div class="row">
+        {# Features of PluralSMS #}
+        {{ page.section_four }}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 {% endif %}
 
 
@@ -243,62 +231,64 @@
 </section>
 
 <section class="foot-imagebg section--even" data-overlay="8">
-    <div class="background-image-holder"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-5">
-                <h6>Work With PluralSMS</h6>
-                <p class="lead">If you wish to integrate bulk sms framework to your new or existing website</p>
-                <a class="btn btn--sm" href="#">
-                    <span class="btn__text">
-                                    Arrange A Consultation
-                                </span>
-                </a>
-            </div>
-        </div>
-        <!--end of row-->
+  <div class="background-image-holder"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <h6>Work With PluralSMS</h6>
+
+        <p class="lead">
+          If you wish to integrate bulk sms framework to your new
+          or existing website
+        </p>
+        <a class="btn btn--sm" href="#">
+          <span class="btn__text">Arrange A Consultation</span>
+        </a>
+      </div>
     </div>
-    <!--end of container-->
+    <!--end of row-->
+  </div>
+  <!--end of container-->
 </section>
 
 
 <footer id="footer" class="site-footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-5">
-							<ul class="nav nav-pills">
-								<li><a href="faqs/">FAQs</a></li>
-								<li><a href="privacy-policy/">Privacy Policy</a></li>
-								<li><a href="disclaimer/">Disclaimer</a></li>
-							</ul>
-						</div>
-						<div class="col-sm-3">
-							<div class="social">
-								<ul class="social-icons">
-									<li><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
-									<li><a href="#"><i class="fa fa-facebook fa-2x"></i></a></li>
-									<li><a href="#"><i class="fa fa-youtube fa-2x"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="narrow-phone text-center">
-								<h5 class="short">Contact Us</h5>
-								<span class="phone">(+234) 703-456-789</span>
-							</div>
-						</div> 
-					</div>
-				</div>
-				<div class="footer-copyright">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-							  <div class="text-center center-block">
-								<a href="http://www.greenlandtechnology.com/"> A GreenLand Technologies SMS Company </a></br>
-								<p> Copyright © 2015. All Rights Reserved.</p>
-							  </div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <ul class="nav nav-pills">
+          <li><a href="faqs/">FAQs</a></li>
+          <li><a href="privacy-policy/">Privacy Policy</a></li>
+          <li><a href="disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <div class="social">
+          <ul class="social-icons">
+            <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook fa-2x"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube fa-2x"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="narrow-phone text-center">
+          <h5 class="short">Contact Us</h5>
+          <span class="phone">(+234) 703-456-789</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-center center-block">
+            <a href="http://www.greenlandtechnology.com/">A GreenLand Technologies SMS Company </a>
+            <p> Copyright © 2015. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

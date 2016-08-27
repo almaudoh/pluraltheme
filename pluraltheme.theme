@@ -106,6 +106,17 @@ function pluraltheme_preprocess_block(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_item_list().
+ */
+function pluraltheme_preprocess_item_list(&$variables) {
+  // Remove the "Create account" and "Reset password" links on the front page.
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    unset($variables['items']['create_account']);
+    unset($variables['items']['request_password']);
+  }
+}
+
+/**
  * Implements template_preprocess_field().
  */
 function pluraltheme_preprocess_field(&$variables) {
