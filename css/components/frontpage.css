@@ -478,7 +478,7 @@
 }
 
 .home-highlights {
-  background: #0678be url(../../images/bg-blue-blueprint.png) repeat bottom left 9%, top left;
+  background: #0678be url(../../images/bg-blue-blueprint.png) repeat;
 }
 
 .home-highlights p {
