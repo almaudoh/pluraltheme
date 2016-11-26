@@ -1,18 +1,41 @@
 <?php
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
 
 /**
  * Load template files
  */
-
 function pluraltheme_theme() {
   return [
     'circled_icon' => array(
       'variables' => array('title' => NULL, 'icon' => NULL),
     ),
   ];
+}
+
+/**
+ * Implements hook_theme_suggestion_HOOK_alter() for page.html.twig
+ *
+ * Theme suggestions for the dashboard.
+ *
+ * @param array $suggestions
+ * @param array $variables
+ */
+function pluraltheme_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // If the current path is under one whose menu has been added to the dashboard,
+  // then use the page.dashboard.html.twig template.
+  // This is using a path-based association of current path and the path of the
+  // menu item placed in the dashboard menu.
+  $current_url = Url::fromRoute('<current>')->toString();
+  foreach (\Drupal::service('menu.link_tree')->load('dashboard', new MenuTreeParameters()) as $route_name => $menu_element) {
+    $link_url = $menu_element->link->getUrlObject()->toString();
+    if (strpos($current_url, $link_url) === 0) {
+      $suggestions[] = 'page__dashboard';
+    }
+  }
 }
 
 /**
@@ -305,6 +328,32 @@ function pluraltheme_preprocess_node(&$variables) {
   $variables['title_attributes']['class'][] = 'node-title';
 }
 
+function pluraltheme_preprocess_menu(&$variables) {
+  // Create a map for the dashboard page menu link icons.
+  if (isset($variables['menu_name']) && $variables['menu_name'] === 'dashboard') {
+    foreach ($variables['items'] as $route_name => $item) {
+      if (stripos($item['title'], (string) t('price')) !== FALSE) {
+        $variables['items'][$route_name]['icon'] = 'dollar';
+      }
+      elseif (stripos($item['title'], (string) t('sms')) !== FALSE) {
+        $variables['items'][$route_name]['icon'] = 'envelope-o';
+      }
+      elseif (stripos($item['title'], (string) t('contact')) !== FALSE) {
+        $variables['items'][$route_name]['icon'] = 'phone';
+      }
+      elseif (stripos($item['title'], (string) t('credit')) !== FALSE) {
+        $variables['items'][$route_name]['icon'] = 'credit-card';
+      }
+      elseif (stripos($item['title'], (string) t('balance')) !== FALSE) {
+        $variables['items'][$route_name]['icon'] = 'money';
+      }
+      else {
+        $variables['items'][$route_name]['icon'] = 'diamond';
+      }
+    }
+  }
+}
+
 /**
  * Implements template_preprocess_page
  *
@@ -334,7 +383,7 @@ function pluraltheme_preprocess_page(&$variables) {
   }
 
   $title = strip_tags($site_name) . ' ' . t('Home');
-  $url = \Drupal\Core\Url::fromRoute('<front>');
+  $url = Url::fromRoute('<front>');
   $url->setOption('attributes', array('title' => $title));
 
   $variables['linked_logo'] = '';

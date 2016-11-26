@@ -1,5 +1,5 @@
 global-styling:
-  version: VERSION
+  version: 8.x-1.x
   css:
     base:
       css/bootstrap/bootstrap.css: { }
@@ -12,34 +12,50 @@ global-styling:
       css/components/comments.css: { }
       css/components/featured.css: { }
       css/components/fonts.css: { }
+      css/components/footer.css: { }
       css/components/form.css: { }
-      css/components/menu-primary.css: { }
-      css/components/menu-side.css: { }
+#      css/components/menu-side.css: { }
       css/components/menu-tabs.css: { }
       css/components/messages.css: { }
+      css/components/nav-header.css: { }
       css/components/page-title.css: { }
       css/components/tables.css: { }
       css/components/typography.css: { }
-      css/sms_ui/pluraltheme-overrides.css: { }
+#      css/sms_ui/pluraltheme-overrides.css: { }
       css/components/style.css: { }
 
+dashboard:
+  version: 8.x-1.x
+  css:
+    component:
+      css/components/dashboard-style.css: { }
+      css/components/dashboard-responsive.css: { }
+  js:
+    js/dashboard.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+
 frontpage:
+  version: 8.x-1.x
   css:
     theme:
       css/components/frontpage.css: { }
 
-summary-display:
-  version: VERSION
+sms-compose-form:
+  version: 8.x-1.x
   css:
     component:
-      css/sms_ui/summary-display.css: { }
+      css/sms_ui/sms-compose-form.css: { }
 
 user-login:
-  version: VERSION
+  version: 8.x-1.x
   css:
     component:
       css/layouts/user-login.css: { }
-
 
 font-awesome:
   css:

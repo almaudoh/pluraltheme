@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Themes the basic statistic data widget for SMS UI e.g. character count.
+ *
+ * Available variables:
+ * - name: The name of the statistic that is being displayed
+ * - value: The initial value of the statistic.
+ * - title: The label to be displayed for the statistic.
+ * - icon: (optional) An icon that is to be displayed.
+ */
+#}
+<div class="value white">
+  <h2 class="js-statistic-{{ name|clean_class }}">{{ value }}</h2>
+  <p>{{ title }}</p>
+</div>

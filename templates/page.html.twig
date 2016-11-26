@@ -1,119 +1,26 @@
-<header class="container">
-  {% if page.header %}
-    <div class="col-md-8 large-8 columns">
-      {{ page.header }}
-    </div>
-  {% endif %}
-
-  <div class="col-md-4 user-details large-screen columns hidden-xs hidden-sm">
-    {#<p>#}
-    {% if logged_in %}
-      <a href="{{ path('user.page') }}"
-         class="user-button">{{ 'My Account'|t }}</a>
-      <a href="{{ path('user.logout') }} "
-         class="user-button">{{ 'Logout'|t }}</a>
-    {% else %}
-      <a href="{{ path('user.register') }}"
-         class="user-button">{{ 'Sign Up Free'|t }}</a>
-      <a href="{{ path('user.login') }}"
-         class="user-button">{{ 'Login'|t }}</a>
-    {% endif %}
-    {#</p>#}
-  </div>
-
-  <div
-      class="col-xs-12 col-sm-12 user-details mobile-screen hidden-lg hidden-md">
-    {% if logged_in %}
-      <a href="{{ path('user.page') }}"
-         class="btn btn-primary radius button success user-button">{{ 'My Account'|t }}</a>
-      <a href="{{ path('user.logout') }}"
-         class="btn btn-success radius button user-button">{{ 'Logout'|t }}</a>
-    {% else %}
-      <a href="{{ path('user.register') }}"
-         class="btn btn-primary radius button user-button">{{ 'Sign Up Free'|t }}</a>
-      <a href="{{ path('user.login') }}"
-         class="btn btn-success radius button success user-button">{{ 'Login'|t }}</a>
-    {% endif %}
-  </div>
-</header>
-
-
-<header class="site-header">
-  {% if page.site_brand or page.navigation %}
-    <div class="header">
-      <div class="container">
-        <div class="row ">
-
-          {% if page.site_brand %}
-            <div class="col-md-4">
-              {{ page.site_brand }}
-            </div>
-          {% endif %}
-
-          {% if page.navigation %}
-            <div class="main-menu">
-              <div class="col-md-8">
-                <div class="pull-right">
-                  {{ page.navigation }}
-                </div>
-              </div>
-            </div>
-          {% endif %}
-
-        </div>
-      </div>
-    </div>
-  {% endif %}
-</header>
-
-{% if page.help %}
-  <div class="l-help container">
-    <div class="row col-md-12">
-      {{ page.help }}
-    </div>
-  </div>
-{% endif %}
-
-    {% if page.content_banner %}
-      <div class="content-banner container">
-        <div class="row col-md-12">
-          {{ page.content_banner }}
-        </div>
-      </div>
-    {% endif %}
-
+{% include 'nav-header.html.twig' %}
 <div class="main-content">
   <div class="container">
     <div class="row">
-      <div id="main" class="{{ main_grid }} columns">
-        <a id="main-content" tabindex="-1"></a>
-        {% if breadcrumb %} {{ breadcrumb }} {% endif %}
-        {% if title and not is_front %}
-          {{ title_prefix }}
-          <h1 id="page-title" class="title">{{ title }}</h1>
-          {{ title_suffix }}
-        {% endif %}
-        {{ page.content }}
-      </div>
       {% if page.sidebar_first %}
-        <div id="sidebar-first"
-             class="{{ sidebar_first_grid }} columns sidebar ">
+        <div id="sidebar-first" class="col-sm-3 columns sidebar ">
           {{ page.sidebar_first }}
         </div>
       {% endif %}
-      {% if page.sidebar_second %}
-        <div id="sidebar-second"
-             class="{{ sidebar_sec_grid }} columns sidebar">
-          {{ page.sidebar_second }}
+
+      <div class="col-sm-8">
+        <div id="main">
+          <a id="main-content" tabindex="-1"></a>
+          {% if breadcrumb %} {{ breadcrumb }} {% endif %}
+          {% if title and not is_front %}
+            {{ title_prefix }}
+            <h1 id="page-title" class="title">{{ title }}</h1>
+            {{ title_suffix }}
+          {% endif %}
+          {{ page.content }}
         </div>
-      {% endif %}
+      </div>
     </div>
   </div>
 </div>
-
-<footer class="layout-footer-bottom row">
-  {{ page.footer_bottom }}
-  <div style="text-align: center; padding: 5px;">
-    <a href="http://www.greenlandtechnology.com/"> A GreenLand Technologies SMS Company </a>
-  </div>
-</footer>
+{% include 'footer.html.twig' %}

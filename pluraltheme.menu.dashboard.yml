@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: dashboard
+label: Dashboard
+description: 'Pluraltheme dashboard menu'
+locked: true

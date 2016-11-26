@@ -1,0 +1,95 @@
+{#
+/**
+ * @file
+ * Themes the base compose form for sms_ui.
+ *
+ * Available variables:
+ * - element: The render element composed of the following components:
+ *   - left_pane: The pane that will be displayed on the left.
+ *   - right_pane: The pane that will be displayed on the right.
+ *   - right_pane_extra: A pane that will be displayed on the far right.
+ */
+#}
+{#
+/**
+ * @file
+ * Overrides the template for the base compose form for sms_ui.
+ *
+ * Available variables:
+ * - element: The render element composed of the following components:
+ *   - left_pane: The pane that will be displayed on the left.
+ *   - right_pane: The pane that will be displayed on the right.
+ *   - right_pane_extra: A pane that will be displayed on the far right.
+ */
+#}
+{{ attach_library('sms_ui/multicolumn-form') }}
+{{ attach_library('pluraltheme/sms-compose-form') }}
+{% set right_pane_size = element.right_pane_extra ? 'half-size' : 'full-size' %}
+<div{{ attributes.addClass('sms-multicolumn-form') }}>
+  <div class="row">
+    <div class="col-sm-5">
+      {{ element.sender }}
+      {{ element.recipients_container }}
+      {{ element.message_container }}
+      {{ element.actions }}
+    </div>
+    <div class="col-sm-3">
+      <div class="state-overview row">
+      <!--widget blocks overview start-->
+      <section class="purple">
+        <div class="symbol">
+          <i class="fa fa-tags"></i>
+        </div>
+        {{ element.statistics.character_count }}
+      </section>
+      <section class="blue">
+        <div class="symbol">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        {{ element.statistics.recipient_count }}
+      </section>
+      <section class="red">
+        <div class="symbol ">
+          <i class="fa fa-send"></i>
+        </div>
+        {{ element.statistics.credit_cost }}
+      </section>
+      <section class="green">
+        <div class="symbol">
+          <i class="fa fa-bullseye"></i>
+        </div>
+        {{ element.statistics.credit_balance }}
+      </section>
+      <!--widget blocks overview end-->
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <section class="summary-block">
+        <div class="title">{{ 'Options'|t }}</div>
+        {% for key, option in element.options if key|first != '#' %}
+          <div class="item option option-{{ option.name|clean_class }}">
+            {{ option }}
+          </div>
+        {% endfor %}
+      </section>
+    </div>
+  </div>
+</div>
+<div class="form-tokens">
+  {{ element.form_build_id }}
+  {{ element.form_token }}
+  {{ element.form_id }}
+</div>
+<div class="others">
+  {{ element|without(
+     'sender',
+     'recipients_container',
+     'message_container',
+     'actions',
+     'statistics',
+     'options',
+     'form_build_id',
+     'form_token',
+     'form_id'
+  ) }}
+</div>

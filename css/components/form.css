@@ -9,6 +9,10 @@ input.disabled {
   background-color: #ABB2B5;
 }
 
+.form-item {
+  margin-bottom: 15px;
+}
+
 .form-item input.error,
 .form-item textarea.error {
   border: 1px solid #c52020;
@@ -37,6 +41,12 @@ input.disabled {
   margin-right: 0;
 }
 
+/** Override bootstrap's border radius */
+.form-control {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
 
 /* Styles for login and registration pages */
 .main-content.user-login,

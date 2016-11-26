@@ -1,0 +1,67 @@
+{{ attach_library('pluraltheme/font-awesome') }}
+<header id="idz-header">
+  <div id="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 top-header-left">
+          <div id="top-phone">Call Us +234 1 4407333</div>
+          <!-- phone and social -->
+          <div id="top-social">
+            <ul class="social-icon">
+              <li><a href="http://www.facebook.com/pluralsms" title="Facebook" target="_blank">
+                  <i class="fa fa-facebook"></i></a>
+              </li>
+              <li><a href="http://twitter.com/pluralsms" title="Twitter" target="_blank">
+                  <i class="fa fa-twitter"></i></a>
+              </li>
+              <li><a href="skype:Plural.Support?call" title="Plural Support" class="skype-bgcolor" target="_blank">
+                  <i class="fa fa-skype"></i></a>
+              </li>
+            </ul>
+          </div>
+          <!-- phone and social end -->
+        </div>
+        <div class="col-sm-6 top-header-right hidden-xs">
+          <!-- chat and account button begin -->
+          <div id="top-button">
+            <ul>
+              <li><a href="http://178.62.27.215:3000/livechat">
+                  <i class="fa fa-comments-o" aria-hidden="true"></i>Live Chat</a>
+              </li>
+            </ul>
+            <div class="top-header-right">
+              <ul></ul>
+            </div>
+          </div>
+          <!-- chat and account button end -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-header">
+    <div class="container">
+      <nav class="navbar" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-th fa-2x"></span>
+          </button>
+
+          {% if page.site_brand %}
+            <div class="navbar-brand">
+              {{ page.site_brand }}
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Navigation -->
+        {% if page.navigation %}
+          {{ page.navigation }}
+        {% endif %}
+        <!--End Navigation -->
+      </nav>
+    </div>
+  </div>
+
+</header>

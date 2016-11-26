@@ -1,14 +1,11 @@
-name: 'Plural Theme'
+name: 'Pluraltheme'
 type: theme
 base theme: bootstrap
-description: 'A responsive theme for PluralSMS website based on Zurb Foundation Framework with D8.'
-version: VERSION
+description: 'A responsive theme for PluralSMS website based on Bootstrap.'
+version: 8.x-1.x
 core: 8.x
 libraries:
   - pluraltheme/global-styling
-libraries-extend:
-  sms_ui/summary-display:
-    - pluraltheme/summary-display
 regions:
   site_brand: 'Site Brand'
   navigation: 'Navigation'
@@ -25,6 +22,8 @@ regions:
   content: 'Main content'
   sidebar_first: 'First sidebar'
   sidebar_second: 'Second sidebar'
+  dashboard_header: 'Dashboard header'
+  dashboard_sidebar: 'Dashboard sidebar'
   adblock_1: 'Large Advert Block'
   adblock_2: 'Small Advert Block'
   footer_top_first: 'Footer top first'

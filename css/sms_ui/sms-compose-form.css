@@ -1,0 +1,37 @@
+/* Overrides for sms-compose-form */
+
+/** Statistics widgets */
+.summary-block {
+  border:1px solid #666f72;
+  background: #ffffff;
+  font-size: 0.9em;
+}
+
+.summary-block .title {
+  background: #808a8d;
+  color: #ffffff;
+  font-size: 1.4em;
+  font-weight: 500;
+  padding: 14px 10px;
+}
+
+.summary-block .item {
+  border-bottom: 1px solid #5f6263;
+  color: #5a5b5b;
+  padding: 7px 10px 7px 10px;
+}
+
+.summary-block .item:last-child {
+  border-bottom: none;
+}
+
+.summary-block .item .form-item {
+  margin: 0;
+}
+
+.summary-block .item select,
+.summary-block .item input[type='text'],
+.summary-block .item textarea {
+  width: 100%;
+  max-width: 100%;
+}

@@ -1,0 +1,36 @@
+{{ attach_library('pluraltheme/dashboard') }}
+{% include 'nav-header.html.twig' %}
+
+<section class="dashboard">
+  <section>
+    {{ page.dashboard_sidebar }}
+    <!-- body content start-->
+    <div class="dash-content">
+      <div class="header-section">
+        <a class="toggle-btn"><i class="fa fa-outdent"></i></a>
+        {{ page.dashboard_header }}
+      </div>
+
+      {#<div class="page-head">#}
+        {#<h3 class="m-b-less">{{ title }}</h3>#}
+        {#<span class="sub-title">Thanks for your patronage</span>#}
+        {#{% if breadcrumb %}#}
+          {#<div class="state-information">{{ breadcrumb }}</div>#}
+        {#{% endif %}#}
+      {#</div>#}
+
+      <div class="row no-gutter">
+        <div class="col-md-9 col-sm-12">
+          <section class="panel">
+            <div class="panel-body">{{ page.content }}</div>
+          </section>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          {{ page.sidebar_second }}
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+{% include 'footer.html.twig' %}
