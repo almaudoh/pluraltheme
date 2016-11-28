@@ -6,6 +6,7 @@ version: 8.x-1.x
 core: 8.x
 libraries:
   - pluraltheme/global-styling
+  - pluraltheme/bootstrap-js
 regions:
   site_brand: 'Site Brand'
   navigation: 'Navigation'

@@ -25,15 +25,15 @@ input.disabled {
 }
 
 .form-submit {
-  vertical-align: middle;
-  color: #FFF;
-  font-weight: bold;
-  border: 1px solid #007095;
-  padding: .55rem 2rem;
-  text-align: center;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
-  width: 100%;
-  background: #1A659B;
+  /*vertical-align: middle;*/
+  /*color: #FFF;*/
+  /*font-weight: bold;*/
+  /*border: 1px solid #007095;*/
+  /*padding: .55rem 2rem;*/
+  /*text-align: center;*/
+  /*box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);*/
+  /*width: 100%;*/
+  /*background: #1A659B;*/
 }
 
 .form-submit.button {
@@ -42,10 +42,18 @@ input.disabled {
 }
 
 /** Override bootstrap's border radius */
-.form-control {
+.form-control,
+.form-submit.button,
+.dropdown-toggle,
+.dropdown-menu {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
+}
+
+.btn-group > .btn + .dropdown-toggle {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 /* Styles for login and registration pages */
