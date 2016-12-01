@@ -3,6 +3,7 @@ global-styling:
   css:
     base:
       css/bootstrap/bootstrap.css: { }
+      css/bootstrap/overrides.min.css: { }
       css/bootstrap/pluraltheme-overrides.css: { }
     component:
       css/layouts/layout.css: { }
@@ -51,11 +52,11 @@ sms-compose-form:
     component:
       css/sms_ui/sms-compose-form.css: { }
 
-user-login:
+user-branding:
   version: 8.x-1.x
   css:
     component:
-      css/layouts/user-login.css: { }
+      css/layouts/user-branding.css: { }
 
 font-awesome:
   css:

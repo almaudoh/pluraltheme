@@ -1,0 +1,58 @@
+/* Styles for pages that use the user branding templates */
+.main-content.user-branding {
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+  padding: 3rem 0 8rem;
+  margin: 2rem auto;
+  max-width: 304px;
+  right: 0;
+}
+
+.main-content.user-branding {
+  max-width: 540px;
+}
+
+.main-content.user-branding .region-content {
+  padding: 0;
+}
+
+.main-content.user-branding .region-header {
+  margin-bottom: 5rem;
+}
+
+.main-content.user-branding section#block-pluraltheme-branding img {
+  width: 100%;
+}
+
+body {
+  background-image: url("../../images/login-bg.png");
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
+/* Styles for login and registration forms */
+.main-content.user-branding {
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);/*
+  padding: 3rem 0 8rem;
+  padding: 5rem 4rem 8rem;
+  margin: 0 auto 2em;
+  max-width: 304px;*/
+  right: 0;
+  margin: 0 auto 2em;
+}
+.main-content.user-branding {
+  padding: 2rem 2rem 6rem;
+}
+
+.main-content.user-branding .region-content {
+  padding: 0;
+}
+
+.main-content.user-branding .region-header {
+  margin-bottom: 5rem;
+}
+
+.main-content.user-branding section#block-pluraltheme-branding img {
+  width: 100%;
+}

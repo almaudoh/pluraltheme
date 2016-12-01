@@ -15,43 +15,49 @@ use Drupal\Core\Url;
  * @param array $variables
  */
 function pluraltheme_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-  // Quickly return if the theme suggestion is already there.
-  if (in_array('page__dashboard', $suggestions)) {
-    return;
-  }
-
-  // If the current path is under one whose menu has been added to the dashboard,
-  // then use the page.dashboard.html.twig template.
-  // This is using a path-based association of current path and the path of the
-  // menu item placed in the dashboard menu.
-  $menu_name = Bootstrap::getTheme()->getSetting('dashboard_menu');
-  $current_url = Url::fromRoute('<current>')->toString();
-  foreach (\Drupal::service('menu.link_tree')->load($menu_name, new MenuTreeParameters()) as $route_name => $menu_element) {
-    $link_url = $menu_element->link->getUrlObject()->toString();
-    if (strpos($current_url, $link_url) === 0) {
-      $suggestions[] = 'page__dashboard';
+  // Theme suggestions for the stylized user login pages.
+  if (!in_array('page__user_branding', $suggestions, TRUE)) {
+    $route_name = \Drupal::routeMatch()->getRouteName();
+    if (in_array($route_name, ['user.login', 'user.register','user.pass'], TRUE) && \Drupal::currentUser()->isAnonymous()) {
+      $suggestions[] = 'page__user_branding';
       return;
     }
   }
 
-  // Further check on paths specified to be themed by the dashboard template.
-  $paths = Bootstrap::getTheme()->getSetting('dashboard_paths');
-  if (!empty($paths)) {
-    foreach (explode("\n", $paths) as $path) {
-      $url = str_replace('__WILDCARD__', '.*', Url::fromUserInput(str_replace('*', '__WILDCARD__', $path))->toString());
-      if (preg_match('@^' . $url . '@', $current_url)) {
+  // Theme suggestions for the dashboard pages.
+  if (!in_array('page__dashboard', $suggestions, TRUE)) {
+    // If the current path is under one whose menu has been added to the dashboard,
+    // then use the page.dashboard.html.twig template.
+    // This is using a path-based association of current path and the path of the
+    // menu item placed in the dashboard menu.
+    $menu_name = Bootstrap::getTheme()->getSetting('dashboard_menu');
+    $current_url = Url::fromRoute('<current>')->toString();
+    foreach (\Drupal::service('menu.link_tree')->load($menu_name, new MenuTreeParameters()) as $route_name => $menu_element) {
+      $link_url = $menu_element->link->getUrlObject()->toString();
+      if (strpos($current_url, $link_url) === 0) {
         $suggestions[] = 'page__dashboard';
         return;
       }
     }
-  }
 
-  // Final check on the 'dashboard_home' page.
-  if ($current_url === Url::fromUserInput(Bootstrap::getTheme()->getSetting('dashboard_home'))->toString()) {
-    $suggestions[] = 'page__dashboard';
-    return;
-  }
+    // Further check on paths specified to be themed by the dashboard template.
+    $paths = Bootstrap::getTheme()->getSetting('dashboard_paths');
+    if (!empty($paths)) {
+      foreach (explode("\n", $paths) as $path) {
+        $url = str_replace('__WILDCARD__', '.*', Url::fromUserInput(str_replace('*', '__WILDCARD__', $path))->toString());
+        if (preg_match('@^' . $url . '@', $current_url)) {
+          $suggestions[] = 'page__dashboard';
+          return;
+        }
+      }
+    }
 
+    // Final check on the 'dashboard_home' page.
+    if ($current_url === Url::fromUserInput(Bootstrap::getTheme()->getSetting('dashboard_home'))->toString()) {
+      $suggestions[] = 'page__dashboard';
+      return;
+    }
+  }
 }
 
 /**
@@ -61,7 +67,7 @@ function pluraltheme_theme_suggestions_page_alter(array &$suggestions, array $va
  * and hides the titles.
  */
 function pluraltheme_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form_id == 'user_login_form') {
+  if ($form_id === 'user_login_form') {
     foreach (Element::children($form) as $element) {
       if (isset($form[$element]['#title'])) {
         // Hide all the titles of elements in this register form, use placeholder.
@@ -70,7 +76,7 @@ function pluraltheme_form_alter(&$form, FormStateInterface $form_state, $form_id
       }
     }
   }
-  else if ($form_id == 'user_register_form') {
+  else if ($form_id === 'user_register_form') {
     foreach (Element::children($form['account']) as $element) {
       if (isset($form['account'][$element]['#title'])) {
         // Hide all the titles of elements in this register form, use placeholder.
@@ -88,7 +94,7 @@ function pluraltheme_form_alter(&$form, FormStateInterface $form_state, $form_id
       }
     }
   }
-  else if ($form_id == 'user_pass') {
+  else if ($form_id === 'user_pass') {
     // Hide the username textfield label and use a placeholder instead.
     $form['name']['#title_display'] = 'invisible';
     $form['name']['#placeholder'] = t('Username or email address');
@@ -101,8 +107,7 @@ function pluraltheme_form_alter(&$form, FormStateInterface $form_state, $form_id
 function pluraltheme_preprocess_item_list(&$variables) {
   // Remove the "Create account" and "Reset password" links on the front page.
   if (\Drupal::service('path.matcher')->isFrontPage()) {
-    unset($variables['items']['create_account']);
-    unset($variables['items']['request_password']);
+    unset($variables['items']['create_account'], $variables['items']['request_password']);
   }
 }
 
@@ -130,7 +135,7 @@ function pluraltheme_preprocess_menu(&$variables) {
         $variables['items'][$route_name]['icon'] = 'diamond';
       }
     }
-    // Add the dashboard_home menu link
+    // Add the dashboard_home menu link.
     $variables['dashboard_home'] = Url::fromUserInput(Bootstrap::getTheme()->getSetting('dashboard_home'))->toString();
   }
 }
@@ -142,12 +147,14 @@ function pluraltheme_preprocess_menu(&$variables) {
  */
 function pluraltheme_preprocess_page(&$variables) {
   // Remove blocks that are not main content from the 'user/login' page.
-  if (\Drupal::routeMatch()->getRouteName() === 'user.login') {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if (in_array($route_name, ['user.login', 'user.register','user.pass'], TRUE)) {
+
     foreach ($variables['page']['content'] as $key => $value) {
-      // @todo: Use of '_content' here is fragile. Need more robust
-      // method to distinguish.
-      if ($key[0] != '#' && strpos($key, '_content') === FALSE) {
-        //unset($variables['page']['content'][$key]);
+      // Unset blocks in the main content region that are not system_main_block
+      // i.e. remove everything but the main content.
+      if ($key[0] !== '#' && (!isset($value['#plugin_id']) || $value['#plugin_id'] !== 'system_main_block')) {
+        unset($variables['page']['content'][$key]);
       }
     }
     // Also remove sidebar regions.

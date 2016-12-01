@@ -13,28 +13,10 @@ h1 h2 h3{
   font-size: 18px;
   line-height: 2em;
 }
-/*
-footer{
-  text-align: center;
-  height: 60px;
-  background: #f4f4f4;
-  padding-top: 20px;
-}*/
-body.path-user {
-  background-image: url("../../images/login-bg.png");
-  background-repeat: repeat-y;
-  background-size: cover;
-}
-
 
 .panel-region, .home-highlights {
 	padding: 4em 0;
 }
-
-/*.no-gutter > [class*='col-'] {*/
-/*padding-right:0;*/
-/*padding-left:0;*/
-/*}*/
 
 .row.no-gutter {
   margin-left: 0;
