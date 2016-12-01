@@ -4,6 +4,7 @@
  * Theme override to display a menu on the dashboard.
  *
  * Available variables:
+ * - dashboard_home: The path to the home page for the dashboard.
  * - menu_name: The machine name of the menu.
  * - items: A nested list of menu items. Each menu item contains:
  *   - attributes: HTML attributes for the menu item.
@@ -24,16 +25,18 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0) }}
+{{ menus.menu_links(items, attributes, 0, dashboard_home) }}
 
-{% macro menu_links(items, attributes, menu_level) %}
+{% macro menu_links(items, attributes, menu_level, dashboard_home) %}
   {% import _self as menus %}
   {% if items %}
     <ul class="nav nav-pills nav-stacked side-navigation">
     <li>
       <h3 class="navigation-title">Navigation</h3>
     </li>
-    <li><a href="#"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+    {% if menu_level == 0 %}
+    <li><a href="{{ dashboard_home }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+    {% endif %}
     {% for item in items %}
       {%
         set classes = [

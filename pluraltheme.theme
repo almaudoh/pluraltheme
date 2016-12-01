@@ -1,20 +1,10 @@
 <?php
 
+use Drupal\bootstrap\Bootstrap;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Url;
-
-/**
- * Load template files
- */
-function pluraltheme_theme() {
-  return [
-    'circled_icon' => array(
-      'variables' => array('title' => NULL, 'icon' => NULL),
-    ),
-  ];
-}
 
 /**
  * Implements hook_theme_suggestion_HOOK_alter() for page.html.twig
@@ -25,17 +15,43 @@ function pluraltheme_theme() {
  * @param array $variables
  */
 function pluraltheme_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Quickly return if the theme suggestion is already there.
+  if (in_array('page__dashboard', $suggestions)) {
+    return;
+  }
+
   // If the current path is under one whose menu has been added to the dashboard,
   // then use the page.dashboard.html.twig template.
   // This is using a path-based association of current path and the path of the
   // menu item placed in the dashboard menu.
+  $menu_name = Bootstrap::getTheme()->getSetting('dashboard_menu');
   $current_url = Url::fromRoute('<current>')->toString();
-  foreach (\Drupal::service('menu.link_tree')->load('dashboard', new MenuTreeParameters()) as $route_name => $menu_element) {
+  foreach (\Drupal::service('menu.link_tree')->load($menu_name, new MenuTreeParameters()) as $route_name => $menu_element) {
     $link_url = $menu_element->link->getUrlObject()->toString();
     if (strpos($current_url, $link_url) === 0) {
       $suggestions[] = 'page__dashboard';
+      return;
     }
   }
+
+  // Further check on paths specified to be themed by the dashboard template.
+  $paths = Bootstrap::getTheme()->getSetting('dashboard_paths');
+  if (!empty($paths)) {
+    foreach (explode("\n", $paths) as $path) {
+      $url = str_replace('__WILDCARD__', '.*', Url::fromUserInput(str_replace('*', '__WILDCARD__', $path))->toString());
+      if (preg_match('@^' . $url . '@', $current_url)) {
+        $suggestions[] = 'page__dashboard';
+        return;
+      }
+    }
+  }
+
+  // Final check on the 'dashboard_home' page.
+  if ($current_url === Url::fromUserInput(Bootstrap::getTheme()->getSetting('dashboard_home'))->toString()) {
+    $suggestions[] = 'page__dashboard';
+    return;
+  }
+
 }
 
 /**
@@ -92,7 +108,8 @@ function pluraltheme_preprocess_item_list(&$variables) {
 
 function pluraltheme_preprocess_menu(&$variables) {
   // Create a map for the dashboard page menu link icons.
-  if (isset($variables['menu_name']) && $variables['menu_name'] === 'dashboard') {
+  if (isset($variables['menu_name']) && $variables['menu_name'] === Bootstrap::getTheme()->getSetting('dashboard_menu')) {
+    // Set the likely icon types for the various dashboard menu items.
     foreach ($variables['items'] as $route_name => $item) {
       if (stripos($item['title'], (string) t('price')) !== FALSE) {
         $variables['items'][$route_name]['icon'] = 'dollar';
@@ -113,6 +130,8 @@ function pluraltheme_preprocess_menu(&$variables) {
         $variables['items'][$route_name]['icon'] = 'diamond';
       }
     }
+    // Add the dashboard_home menu link
+    $variables['dashboard_home'] = Url::fromUserInput(Bootstrap::getTheme()->getSetting('dashboard_home'))->toString();
   }
 }
 
