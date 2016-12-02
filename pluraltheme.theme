@@ -161,6 +161,13 @@ function pluraltheme_preprocess_page(&$variables) {
     $variables['page']['sidebar_first'] = $variables['page']['sidebar_second'] = '';
   }
 
+  // Mark the dashboard page with a flag.
+  $current_url = Url::fromRoute('<current>')->toString();
+  $dashboard_home = Url::fromUserInput(Bootstrap::getTheme()->getSetting('dashboard_home'))->toString();
+  if ($current_url === $dashboard_home) {
+    $variables['is_dashboard_home'] = TRUE;
+  }
+
 }
 
 /**
