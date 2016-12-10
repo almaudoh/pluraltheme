@@ -26,8 +26,8 @@ function pluraltheme_theme_suggestions_page_alter(array &$suggestions, array $va
 
   // Theme suggestions for the dashboard pages.
   if (!in_array('page__dashboard', $suggestions, TRUE)) {
-    // If the current path is under one whose menu has been added to the dashboard,
-    // then use the page.dashboard.html.twig template.
+    // If the current path is under one whose menu has been added to the
+    // dashboard, then use the page.dashboard.html.twig template.
     // This is using a path-based association of current path and the path of the
     // menu item placed in the dashboard menu.
     $menu_name = Bootstrap::getTheme()->getSetting('dashboard_menu');

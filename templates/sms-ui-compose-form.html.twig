@@ -36,30 +36,38 @@
     <div class="col-sm-3">
       <div class="state-overview row">
       <!--widget blocks overview start-->
+      {% if element.statistics.character_count %}
       <section class="purple">
         <div class="symbol">
           <i class="fa fa-tags"></i>
         </div>
         {{ element.statistics.character_count }}
       </section>
+      {% endif %}
+      {% if element.statistics.recipient_count %}
       <section class="blue">
         <div class="symbol">
           <i class="fa fa-envelope-o"></i>
         </div>
         {{ element.statistics.recipient_count }}
       </section>
+      {% endif %}
+      {% if element.statistics.credit_cost %}
       <section class="red">
         <div class="symbol ">
           <i class="fa fa-send"></i>
         </div>
         {{ element.statistics.credit_cost }}
       </section>
+      {% endif %}
+      {% if element.statistics.credit_balance %}
       <section class="green">
         <div class="symbol">
           <i class="fa fa-bullseye"></i>
         </div>
         {{ element.statistics.credit_balance }}
       </section>
+      {% endif %}
       <!--widget blocks overview end-->
       </div>
     </div>
