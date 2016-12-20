@@ -1519,7 +1519,8 @@ a.btn-view-all {
 /* dashboard colors ends here */
 
 /** Dashboard panel styles */
-.panel-panel .block > h2 {
+.panel-panel .block > h2,
+.panel-panel nav > h2 {
   font-size: 1.2em;
   color: #fff;
   background-color: #999;

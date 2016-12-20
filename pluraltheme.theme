@@ -43,6 +43,7 @@ function pluraltheme_theme_suggestions_page_alter(array &$suggestions, array $va
     // Further check on paths specified to be themed by the dashboard template.
     $paths = Bootstrap::getTheme()->getSetting('dashboard_paths');
     if (!empty($paths)) {
+      $paths = str_replace("\r\n", "\n", $paths);
       foreach (explode("\n", $paths) as $path) {
         $url = str_replace('__WILDCARD__', '.*', Url::fromUserInput(str_replace('*', '__WILDCARD__', $path))->toString());
         if (preg_match('@^' . $url . '@', $current_url)) {
